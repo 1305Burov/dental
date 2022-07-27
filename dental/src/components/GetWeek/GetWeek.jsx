@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
+
 
 export const GetWeek = () => {
     const [numWeek, setNumWeek] = useState(0);
-
     const week = [];
     const days = [
         'Воскресенье',
@@ -27,7 +28,7 @@ export const GetWeek = () => {
         'Ноябрь',
         'Декабрь'
     ];
-    
+
     for (let i = 0 + numWeek; i < 7 + numWeek; i++) {
         const date = new Date();
         date.setDate(date.getDate() + i);
@@ -37,7 +38,12 @@ export const GetWeek = () => {
         const day = date.getDay();
         const weekDay = `${days[day]} ${date.getDate()}, ${months[month]} ${year}`;
 
-        week.push( i === 0 ? weekDay + ` (today)` : weekDay );
+        week.push( 
+            {
+                dateStroke: i === 0 ? weekDay + ` (today)` : weekDay,
+                date
+            }
+            );
     }
 
     function nextWeek() {
@@ -52,7 +58,7 @@ export const GetWeek = () => {
         <>
             <ul>
                 {week.map((day) => {
-                    return <li key={day}>{day}</li>
+                    return <Link to={`/day/${Date.parse(day.date)}`}  key={day.dateStroke}><li>{day.dateStroke}</li></Link>
                 })}
             </ul>
             <button onClick={prevWeek}>prev</button>

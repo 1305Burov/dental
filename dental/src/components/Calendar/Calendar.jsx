@@ -1,23 +1,17 @@
-import { useState } from "react";
 import { GetDay } from "../GetDay/GetDay";
 import { GetWeek } from "../GetWeek/GetWeek";
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
+
 
 export const Calendar = () => {
-    const [isWeek, setIsWeek] = useState(true);
-    
-    function renderWeek() {
-        setIsWeek( p => p = true )
-    }
-
-    function renderDay() {
-        setIsWeek( p => p = false )
-    }
-    
+    const location = useLocation();
     return (
         <>  
-            <button onClick={ renderWeek }>Week</button>
-            <button onClick={ renderDay }>Day</button>
-            { isWeek ? <GetWeek /> : <GetDay /> }            
+            {location.pathname === '/' ? <Link to={`/day/${Date.now()}`}>Day</Link> : <Link to="/">Week</Link> }
+            <Routes>
+                <Route path="/" element={ <GetWeek /> } />
+                <Route path="/day/:dayInSeconds" element={ <GetDay /> } />
+            </Routes>
         </>
     );
 }
