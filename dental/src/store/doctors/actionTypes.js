@@ -1,2 +1,4 @@
-export const INC = 'INC';
-export const DEC = 'DEC';
+export const CREATE_DOCTOR = 'CREATE_DOCTOR';
+export const REMOVE_DOCTOR = 'REMOVE_DOCTOR';
+export const GET_DOCTORS = 'GET_DOCTORS';
+export const UPDATE_DOCTORS = 'GET_DOCTORS';

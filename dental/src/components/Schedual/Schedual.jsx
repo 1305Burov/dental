@@ -5,28 +5,40 @@ export const Schedual = ({date}) => {
             doctorId: 1,
             patientName: 'Alex',
             date: '1 7 2022',
-            time: '9:15'
+            time: {
+                from: '9:15',
+                to: '10:30'
+            }
         },
         {
             id: 2,
             doctorId: 1,
             patientName: 'Alex Novac',
             date: '2 7 2022',
-            time: '10:30'
+            time: {
+                from: '8:15',
+                to: '8:30'
+            }
         },
         {
             id: 3,
             doctorId: 1,
-            patientName: 'Igor Goverment',
+            patientName: 'Igor Government',
             date: '2 7 2022',
-            time: '18:30'
+            time: {
+                from: '15:15',
+                to: '18:00'
+            }
         },
         {
             id: 4,
             doctorId: 1,
             patientName: 'Vasya Kent',
             date: '2 7 2022',
-            time: '11:30'
+            time: {
+                from: '10:15',
+                to: '15:00'
+            }
         }
     ]
 
@@ -48,12 +60,19 @@ export const Schedual = ({date}) => {
         if (appoitment.date === date) return appoitment;
     })
 
-    const timeWithAppointments = timeArr.reduce((readyTime, time) => {
+    const timeWithAppointments = timeArr.reduce((readyTime, time, i) => {
         todaysAppointments.map((app) => {
-            if (time === app.time) {
+            
+            if (time === app.time.from) {
                 time = time + ' - ' + app.patientName;
+                while(timeArr[i + 1] !== app.time.to) {
+                    timeArr[i + 1] += ' ========';
+                    i++;  
+                }
+                timeArr[i + 1] += ' - ' +  app.patientName
             }
         })
+        
         readyTime.push(time)
         return readyTime;
     }, [])

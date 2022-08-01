@@ -21,9 +21,7 @@ export const GetDay = () => {
         setDay(p => p = new Date( Date.now() ));
         navigate(`/day/${Date.now()}`);
     }
-   
-    
-
+ 
     return (
         <div>
             <DayString date={day} />

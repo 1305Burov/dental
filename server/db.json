@@ -2,17 +2,30 @@
     "doctors": [
         {
             "id": 0,
-            "doctorName" : "Доктор 1"
-        }
-    ],
-    "patients": [
+            "doctorName" : "Доктор 1",
+            "patients": [
+                {
+                    "id": 0,
+                    "patientName" : "Иван Иванов",
+                    "isTreated": false,
+                    "visitCount": 0
+                }
+            ]
+        },
         {
-            "id": 0,
-            "patientName" : "Иван Иванов",
-            "isTreated": false,
-            "visitCount": 0
+            "id": 1,
+            "doctorName" : "Доктор 2",
+            "patients": [
+                {
+                    "id": 0,
+                    "patientName" : "Иван Иванов",
+                    "isTreated": false,
+                    "visitCount": 0
+                }
+            ]
         }
     ],
+    
     "appoitments": [
         {
             "id": 0,
