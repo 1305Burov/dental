@@ -1,49 +1,20 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
-
+import { DayString } from "../DayString/DayString";
 
 export const GetWeek = () => {
     const [numWeek, setNumWeek] = useState(0);
     const week = [];
-    const days = [
-        'Воскресенье',
-        'Понедельник',
-        'Вторник',
-        'Среда',
-        'Четверг',
-        'Пятница',
-        'Суббота'
-    ];
-    const months = [
-        'Январь',
-        'Февраль',
-        'Март',
-        'Апрель',
-        'Май',
-        'Июнь',
-        'Июль',
-        'Август',
-        'Сентябрь',
-        'Октябрь',
-        'Ноябрь',
-        'Декабрь'
-    ];
-
+   
     for (let i = 0 + numWeek; i < 7 + numWeek; i++) {
         const date = new Date();
         date.setDate(date.getDate() + i);
-            
-        const year = date.getFullYear();
-        const month = date.getMonth();
-        const day = date.getDay();
-        const weekDay = `${days[day]} ${date.getDate()}, ${months[month]} ${year}`;
-
+        
         week.push( 
             {
-                dateStroke: i === 0 ? weekDay + ` (today)` : weekDay,
-                date
+                date,
             }
-            );
+        );
     }
 
     function nextWeek() {
@@ -54,11 +25,17 @@ export const GetWeek = () => {
         setNumWeek(p => p - 7)
     }
 
+    
     return (
         <>
             <ul>
                 {week.map((day) => {
-                    return <Link to={`/day/${Date.parse(day.date)}`}  key={day.dateStroke}><li>{day.dateStroke}</li></Link>
+                    return <Link to={`/day/${Date.parse(day.date)}`}  key={day.date}>
+                            <li>
+                                <DayString date={day.date} />
+                                {String(new Date()) === String(day.date) ? ' today' : '' } 
+                            </li>
+                        </Link>
                 })}
             </ul>
             <button onClick={prevWeek}>prev</button>

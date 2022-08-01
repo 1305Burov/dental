@@ -1,0 +1,25 @@
+{
+    "doctors": [
+        {
+            "id": 0,
+            "doctorName" : "Доктор 1"
+        }
+    ],
+    "patients": [
+        {
+            "id": 0,
+            "patientName" : "Иван Иванов",
+            "isTreated": false,
+            "visitCount": 0
+        }
+    ],
+    "appoitments": [
+        {
+            "id": 0,
+            "doctorId" : 1,
+            "patientName": "Иван Иванов",
+            "date": "1 7 2022",
+            "time": "9:15"
+        }
+    ]
+}
