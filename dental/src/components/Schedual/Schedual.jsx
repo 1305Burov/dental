@@ -1,4 +1,16 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getActiveDoctor } from "../../store/activeDoctor/actionCreators";
+import { activeDoctorSelector } from "../../store/activeDoctor/selectors";
+
 export const Schedual = ({date}) => {
+    const dispatch = useDispatch();
+    const activeDoctor = useSelector(activeDoctorSelector);
+
+    useEffect(() => {
+        dispatch(getActiveDoctor())
+    }, [])
+
     const appoitments = [
         {
             id: 1,
@@ -22,7 +34,7 @@ export const Schedual = ({date}) => {
         },
         {
             id: 3,
-            doctorId: 1,
+            doctorId: 0,
             patientName: 'Igor Government',
             date: '2 7 2022',
             time: {
@@ -32,7 +44,7 @@ export const Schedual = ({date}) => {
         },
         {
             id: 4,
-            doctorId: 1,
+            doctorId: 0,
             patientName: 'Vasya Kent',
             date: '2 7 2022',
             time: {
@@ -60,25 +72,27 @@ export const Schedual = ({date}) => {
         if (appoitment.date === date) return appoitment;
     })
 
-    const timeWithAppointments = timeArr.reduce((readyTime, time, i) => {
+    
+    const timeWithAppointments = activeDoctor.doctorName ? timeArr.reduce((readyTime, time, i) => {
         todaysAppointments.map((app) => {
-            
-            if (time === app.time.from) {
-                time = time + ' - ' + app.patientName;
-                while(timeArr[i + 1] !== app.time.to) {
-                    timeArr[i + 1] += ' ========';
-                    i++;  
+            if (activeDoctor.id === app.doctorId) {
+                if (time === app.time.from) {
+                    time = time + ' - ' + app.patientName;
+                    while(timeArr[i + 1] !== app.time.to) {
+                        timeArr[i + 1] += ' ========';
+                        i++;  
+                    }
+                    timeArr[i + 1] += ' - ' +  app.patientName
                 }
-                timeArr[i + 1] += ' - ' +  app.patientName
             }
         })
-        
         readyTime.push(time)
         return readyTime;
-    }, [])
+    }, []) : [];
+    
 
     return (
-        <div>
+        <div className="schedual">
             {timeWithAppointments.map(time => {
                 return <div key={time}>{time}</div>
             })}   

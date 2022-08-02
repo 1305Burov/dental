@@ -10,9 +10,9 @@ doctorsApi.interceptors.response.use(
     (error) => Promise.reject(error)
 );
 
-export const getDoctors = () => doctorsApi.get();
-export const getDoctor = (doctorId) => doctorsApi.get(`/${doctorId}`);
-export const createDoctor = (newDoctor) => doctorsApi.post('', newDoctor);
-export const updateDoctor = (doctorId, updateData) => doctorsApi.patch(`/${doctorId}`, updateData);
-export const deleteDoctor = (doctorId) => doctorsApi.delete(`/${doctorId}`);
+export const getDoctorsAxios = () => doctorsApi.get();
+export const getDoctorAxios = (doctorId) => doctorsApi.get(`/${doctorId}`);
+export const createDoctorAxios = (newDoctor) => doctorsApi.post('', newDoctor);
+export const updateDoctorAxios = (doctorId, updateData) => doctorsApi.patch(`/${doctorId}`, updateData);
+export const deleteDoctorAxios = (doctorId) => doctorsApi.delete(`/${doctorId}`);
     

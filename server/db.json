@@ -9,6 +9,18 @@
                     "patientName" : "Иван Иванов",
                     "isTreated": false,
                     "visitCount": 0
+                },
+                {
+                    "id": 1,
+                    "patientName" : "Иван1 Иванов",
+                    "isTreated": false,
+                    "visitCount": 0
+                },
+                {
+                    "id": 2,
+                    "patientName" : "Иван2 Иванов",
+                    "isTreated": true,
+                    "visitCount": 0
                 }
             ]
         },

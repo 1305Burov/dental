@@ -6,13 +6,13 @@ import { Routes, Route, Link, useLocation } from 'react-router-dom';
 export const Calendar = () => {
     const location = useLocation();
     return (
-        <>  
-            {location.pathname === '/' ? <Link to={`/day/${Date.now()}`}>Day</Link> : <Link to="/">Week</Link> }
+        <div className="calendar">  
+            {location.pathname === '/' ? <Link to={`day/${Date.now()}`}>Day</Link> : <Link to="/">Week</Link> }
             <Routes>
                 <Route path="/" element={ <GetWeek /> } />
-                <Route path="/day/:dayInSeconds" element={ <GetDay /> } />
+                <Route path="day/:dayInSeconds" element={ <GetDay /> } />
             </Routes>
-        </>
+        </div>
     );
 }
 
