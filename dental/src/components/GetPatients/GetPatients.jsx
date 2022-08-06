@@ -23,9 +23,9 @@ export const GetPatients = () => {
             <button onClick={filterPatients}>{isOnTreat ? 'All' : 'On treat'}</button>
             {activeDoctor.doctorName && activeDoctor.patients.map(patient => {
                 if (isOnTreat) {
-                    return isOnTreat === patient.isTreated ? <p key={patient.id}>{patient.patientName}</p> : '';
+                    return isOnTreat === patient.isTreated ? <p key={patient.id}>{patient.name}</p> : '';
                 }else {
-                    return <p key={patient.id}>{patient.patientName}</p>
+                    return <p key={patient.id}>{patient.name}</p>
                 }
             })}
         </div>

@@ -6,21 +6,21 @@
             "patients": [
                 {
                     "id": 0,
-                    "patientName" : "Иван Иванов",
+                    "name" : "Иван Иванов",
                     "isTreated": false,
-                    "visitCount": 0
+                    "visitCount": 1
                 },
                 {
                     "id": 1,
-                    "patientName" : "Иван1 Иванов",
+                    "name" : "Иван1 Иванов",
                     "isTreated": false,
-                    "visitCount": 0
+                    "visitCount": 1
                 },
                 {
                     "id": 2,
-                    "patientName" : "Иван2 Иванов",
+                    "name" : "Иван2 Иванов",
                     "isTreated": true,
-                    "visitCount": 0
+                    "visitCount": 2
                 }
             ]
         },
@@ -30,9 +30,9 @@
             "patients": [
                 {
                     "id": 0,
-                    "patientName" : "Иван Иванов",
+                    "name" : "Иван Иванов 333",
                     "isTreated": false,
-                    "visitCount": 0
+                    "visitCount": 1
                 }
             ]
         }
@@ -42,7 +42,7 @@
         {
             "id": 0,
             "doctorId" : 1,
-            "patientName": "Иван Иванов",
+            "name": "Иван Иванов",
             "date": "1 7 2022",
             "time": "9:15"
         }
