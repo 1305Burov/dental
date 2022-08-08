@@ -34,6 +34,22 @@
         }
     }
 
+    &__timepicker {
+        &-wrapper {
+            display: flex;
+            max-height: 38px;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 12px;
+            gap: 16px;
+            & .dropdown__box {
+                margin: 0;
+            }
+            & > p {
+                margin: 0;
+            }
+        }
+    }
     
     &__list {
         position: absolute;

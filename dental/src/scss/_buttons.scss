@@ -1,0 +1,25 @@
+.button {
+    display: block;
+    width: 192px;
+    height: 48px;
+    margin: 0 auto;
+    padding: 16px 32px;
+    background-color: #C0FFAA;
+    border: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    &-note {
+        background-color: #FDFFAA;
+    }
+}
+
+.button_close {
+    position: absolute;
+    top: 48px;
+    right: 32px;
+    width: 18px;
+    height: 18px;
+    background: url('../../public/images/close-icon.svg') center center / cover no-repeat;
+    border: 0;
+    cursor: pointer;
+}

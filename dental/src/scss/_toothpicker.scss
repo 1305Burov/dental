@@ -1,0 +1,22 @@
+.toothpicker {
+    display: flex;
+    margin: 22px 0;
+    align-items: center;
+    flex-direction: column;
+    user-select: none;
+    &__box {
+        display: flex;
+        align-items: flex-end;
+        gap: 5px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        &-bottom {
+            align-items: flex-start;
+        }
+    }
+    &__active {
+        & > svg {
+            fill: #7dfa50;
+        }
+    }
+}

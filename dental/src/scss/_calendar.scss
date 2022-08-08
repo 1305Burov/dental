@@ -1,9 +1,29 @@
 .calendar {
     width: fit-content;
     margin: 75px 50px;
+    & .engaged {
+        &-note {
+            background-color: #FDFFAA;
+            cursor: pointer;
+        }
+        &-patient {
+            background-color: #C0FFAA;
+            cursor: pointer;
+        }
+    }
     & .schedual {
         max-height: 70vh;
         width: 70vw;
         overflow: auto;
+        &__time {
+            padding: 5px;
+            &-free {
+                padding: 10px;
+                cursor: pointer;
+                &:hover {
+                    background-color: #eeeeee;
+                }
+            }
+        }
     }
 }

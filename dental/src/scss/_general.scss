@@ -6,19 +6,8 @@ input[type=number]::-webkit-inner-spin-button {
     display: flex;
 }
 
-.engaged {
-    &-note {
-        background-color: #FDFFAA;
-        cursor: pointer;
-    }
-    &-patient {
-        background-color: #C0FFAA;
-        cursor: pointer;
-    }
-}
-
-
 .appointment {
+    
     &__block {
         position: absolute;
         top: 50%;
@@ -39,7 +28,15 @@ input[type=number]::-webkit-inner-spin-button {
                 margin: 0;
             }
         }
+        
         & .form {
+            &__date {
+                position: absolute;
+                top: 48px;
+                max-width: 80px;
+                background-color: transparent;
+                border: 0;
+            }
             &__visit {
                 max-width: 72px;
                 margin-left: 16px;
@@ -66,7 +63,8 @@ input[type=number]::-webkit-inner-spin-button {
                 &-patient {
                     background-color: #C0FFAA;
                 }
-            } 
+            }
+            
         }
     }
 }
