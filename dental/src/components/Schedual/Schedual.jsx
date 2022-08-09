@@ -2,74 +2,21 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getActiveDoctor } from "../../store/activeDoctor/actionCreators";
 import { activeDoctorSelector } from "../../store/activeDoctor/selectors";
+import { appointmentsSelector } from "../../store/appointments/selectors";
+import { getAppointmentThunk } from "../../store/appointments/thunk";
 import { AppointmentForm } from "../AppointmentForm/AppointmentForm";
 
 export const Schedual = ({date}) => {
     const dispatch = useDispatch();
     const activeDoctor = useSelector(activeDoctorSelector); 
+    const appointments = useSelector(appointmentsSelector);
     const [showAppointmentForm, setShowAppointmentForm] = useState(false);
     const [chosenTime, setchosenTime] = useState('');
+    
     useEffect(() => {
         dispatch(getActiveDoctor())
+        dispatch(getAppointmentThunk());
     }, [])
-
-    const appoitments = [
-        {
-            id: 1,
-            doctorId: 1,
-            name: 'Alex',
-            date: '1 7 2022',
-            isNote: false,
-            time: {
-                from: '9:15',
-                to: '10:30'
-            }
-        },
-        {
-            id: 2,
-            doctorId: 1,
-            name: 'Alex Novac',
-            date: '2 7 2022',
-            isNote: false,
-            time: {
-                from: '8:15',
-                to: '8:30'
-            }
-        },
-        {
-            id: 3,
-            doctorId: 0,
-            name: 'Igor Government',
-            date: '2 7 2022',
-            isNote: false,
-            time: {
-                from: '15:15',
-                to: '18:00'
-            }
-        },
-        {
-            id: 4,
-            doctorId: 0,
-            name: 'Отдохнуть...',
-            date: '2 7 2022',
-            isNote: true,
-            time: {
-                from: '10:15',
-                to: '15:00'
-            }
-        },
-        {
-            id: 5,
-            doctorId: 0,
-            name: 'Something else',
-            date: '2 7 2022',
-            isNote: false,
-            time: {
-                from: '7:15',
-                to: '8:00'
-            }
-        }
-    ]
 
     let timeArr = [], h, m;
     const from = 7;
@@ -85,35 +32,35 @@ export const Schedual = ({date}) => {
         }
     }
 
-    const todaysAppointments = activeDoctor.doctorName ? appoitments.filter(appoitment => {
+    const todaysAppointments = activeDoctor.doctorName ? appointments.filter(appoitment => {
         if (appoitment.date === date && activeDoctor.id === appoitment.doctorId) return appoitment;
     }): [];
 
     const timeWithAppointments = timeArr.reduce((readyTime, time, i) => {
         todaysAppointments.map((app) => {
             if (time === app.time.from) {
-                time = app.isNote ? {
+                time = app.isAppointment ? {
                         time: `${time}`, 
                         name: app.name,
-                        type: app.isNote
+                        type: app.isAppointment
                     }
                     : {
                         time: `${time}`, 
                         name: app.name,
-                        type: app.isNote
+                        type: app.isAppointment
                     }
                 while(timeArr[i + 1] !== app.time.to) {
                     timeArr[i + 1] = {
                         time: `${timeArr[i + 1]}`, 
                         name: '',
-                        type: app.isNote 
+                        type: app.isAppointment 
                     };
                     i++;  
                 }
                 timeArr[i + 1] = {
                     time: `${timeArr[i + 1]}`,
                     name: '',
-                    type: app.isNote 
+                    type: app.isAppointment 
                 }
             }
         })
@@ -128,8 +75,8 @@ export const Schedual = ({date}) => {
         <div className="schedual">
             {timeWithAppointments.map((time, index) => {
                 if (typeof time === 'object') {
-                    return time.type ? <div key={time.time} className='schedual__time engaged-note'>{time.time} {time.name && ` - ${time.name}`}</div>
-                        : <div key={time.time} className='schedual__time engaged-patient'>{time.time} {time.name && ` - ${time.name}`}</div>
+                    return time.type ? <div key={time.time} className='schedual__time engaged-patient'>{time.time} {time.name && ` - ${time.name}`}</div>
+                        : <div key={time.time} className='schedual__time engaged-note'>{time.time} {time.name && ` - ${time.name}`}</div>
                 }else {
                     freeTime.push(time);
                     return typeof timeWithAppointments[index + 1] === 'object' || timeWithAppointments[index] === timeWithAppointments[timeWithAppointments.length - 1]

@@ -102,7 +102,7 @@ const bottomTeeth = [
     </svg>
 ];
 export const ToothPick = () => {
-    const [chosenTooth, setChosenTooth] = useState(0);
+    const [chosenTooth, setChosenTooth] = useState('');
     return (
         <div className="toothpicker">
             <input type="hidden" name="teethId" value={chosenTooth} />

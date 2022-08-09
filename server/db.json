@@ -1,50 +1,300 @@
 {
-    "doctors": [
+  "doctors": [
+    {
+      "id": 0,
+      "doctorName": "Доктор 1",
+      "patients": [
         {
-            "id": 0,
-            "doctorName" : "Доктор 1",
-            "patients": [
-                {
-                    "id": 0,
-                    "name" : "Иван Иванов",
-                    "isTreated": false,
-                    "visitCount": 1
-                },
-                {
-                    "id": 1,
-                    "name" : "Иван1 Иванов",
-                    "isTreated": false,
-                    "visitCount": 1
-                },
-                {
-                    "id": 2,
-                    "name" : "Иван2 Иванов",
-                    "isTreated": true,
-                    "visitCount": 2
-                }
-            ]
+          "id": 0,
+          "name": "Иван Иванов",
+          "isTreated": false,
+          "visitCount": 1
         },
         {
-            "id": 1,
-            "doctorName" : "Доктор 2",
-            "patients": [
-                {
-                    "id": 0,
-                    "name" : "Иван Иванов 333",
-                    "isTreated": false,
-                    "visitCount": 1
-                }
-            ]
-        }
-    ],
-    
-    "appoitments": [
+          "id": 1,
+          "name": "Иван1 Иванов",
+          "isTreated": true,
+          "visitCount": 1
+        },
         {
-            "id": 0,
-            "doctorId" : 1,
-            "name": "Иван Иванов",
-            "date": "1 7 2022",
-            "time": "9:15"
+          "id": 2,
+          "name": "Иван2 Иванов",
+          "isTreated": true,
+          "visitCount": 1
         }
-    ]
+      ]
+    },
+    {
+      "id": 1,
+      "doctorName": "Доктор 2",
+      "patients": [
+        {
+          "id": 0,
+          "name": "Иван Иванов 333",
+          "isTreated": true,
+          "visitCount": 1
+        }
+      ]
+    }
+  ],
+  "appoitments": [
+    {
+      "id": 1,
+      "doctorId": 0,
+      "teethId": 11,
+      "name": "Alex",
+      "diagnos": "",
+      "healing": "",
+      "note": "",
+      "isAppointment": true,
+      "date": "2 7 2022",
+      "time": {
+        "from": "9:15",
+        "to": "10:30"
+      }
+    },
+    {
+      "id": 4,
+      "doctorId": 0,
+      "name": "Отдохнуть...",
+      "date": "2 7 2022",
+      "note": "",
+      "isAppointment": false,
+      "time": {
+        "from": "11:15",
+        "to": "15:00"
+      }
+    },
+    {
+      "doctorId": 0,
+      "teethId": 11,
+      "name": "Иван2 Иванов",
+      "diagnos": "some diagnos 2",
+      "healing": "some healings 2",
+      "note": "",
+      "date": "2 7 2022",
+      "time": {
+        "from": "7:00",
+        "to": "7:30"
+      },
+      "isAppointment": true,
+      "id": 5
+    },
+    {
+      "doctorId": 0,
+      "teethId": 18,
+      "name": "Иван Иванов",
+      "diagnos": "some diagnos 1",
+      "healing": "some healings 1",
+      "note": "",
+      "date": "2 7 2022",
+      "time": {
+        "from": "7:45",
+        "to": "8:00"
+      },
+      "isAppointment": true,
+      "id": 6
+    },
+    {
+      "doctorId": 0,
+      "name": "Some deal",
+      "note": "No info was wrote",
+      "date": "2 7 2022",
+      "time": {
+        "from": "8:15",
+        "to": "9:00"
+      },
+      "isAppointment": false,
+      "id": 7
+    },
+    {
+      "doctorId": 0,
+      "name": "2eawed",
+      "note": "",
+      "date": "2 7 2022",
+      "time": {
+        "from": "10:45",
+        "to": "11:00"
+      },
+      "isAppointment": false,
+      "id": 8
+    },
+    {
+      "doctorId": 0,
+      "teethId": 11,
+      "name": "Иван Иванов",
+      "diagnos": "some diagnos 1",
+      "healing": "some healings 1",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "7:00",
+        "to": "7:30"
+      },
+      "isAppointment": true,
+      "id": 9
+    },
+    {
+      "doctorId": 0,
+      "teethId": 0,
+      "name": "Иван Иванов",
+      "diagnos": "some diagnos 1",
+      "healing": "some healings 1",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "7:45",
+        "to": "9:00"
+      },
+      "isAppointment": true,
+      "id": 10
+    },
+    {
+      "doctorId": 0,
+      "teethId": 13,
+      "name": "Иван1 Иванов",
+      "diagnos": "some diagnos 1",
+      "healing": "some healings 1",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "9:15",
+        "to": "10:15"
+      },
+      "isAppointment": true,
+      "id": 11
+    },
+    {
+      "doctorId": 0,
+      "teethId": 33,
+      "name": "Иван1 Иванов",
+      "diagnos": "some diagnos 1",
+      "healing": "some healings 1",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "10:45",
+        "to": "11:30"
+      },
+      "isAppointment": true,
+      "id": 12
+    },
+    {
+      "doctorId": 0,
+      "teethId": 25,
+      "name": "Иван1 Иванов",
+      "diagnos": "some diagnos 2",
+      "healing": "some healings 2",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "11:45",
+        "to": "12:15"
+      },
+      "isAppointment": true,
+      "id": 13
+    },
+    {
+      "doctorId": 0,
+      "teethId": 23,
+      "name": "Иван1 Иванов",
+      "diagnos": "some diagnos 1",
+      "healing": "some healings 1",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "12:30",
+        "to": "12:45"
+      },
+      "isAppointment": true,
+      "id": 14
+    },
+    {
+      "doctorId": 1,
+      "teethId": 13,
+      "name": "Иван Иванов 333",
+      "diagnos": "some diagnos 1",
+      "healing": "some healings 1",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "7:00",
+        "to": "7:15"
+      },
+      "isAppointment": true,
+      "id": 15
+    },
+    {
+      "doctorId": 1,
+      "name": "325610",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "7:30",
+        "to": "8:30"
+      },
+      "isAppointment": false,
+      "id": 16
+    },
+    {
+      "doctorId": 1,
+      "teethId": 24,
+      "name": "Иван Иванов 333",
+      "diagnos": "some diagnos 2",
+      "healing": "some healings 2",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "8:45",
+        "to": "10:00"
+      },
+      "isAppointment": true,
+      "id": 17
+    },
+    {
+      "doctorId": 1,
+      "teethId": 22,
+      "name": "Иван Иванов 333",
+      "diagnos": "some diagnos 1",
+      "healing": "some healings 1",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "10:30",
+        "to": "11:00"
+      },
+      "isAppointment": true,
+      "id": 18
+    },
+    {
+      "doctorId": 0,
+      "teethId": 23,
+      "name": "Иван2 Иванов",
+      "diagnos": "some diagnos 2",
+      "healing": "some healings 2",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "13:00",
+        "to": "13:15"
+      },
+      "isAppointment": true,
+      "id": 19
+    },
+    {
+      "doctorId": 0,
+      "teethId": 21,
+      "name": "Иван1 Иванов",
+      "diagnos": "some diagnos 2",
+      "healing": "some healings 2",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "13:45",
+        "to": "14:15"
+      },
+      "isAppointment": true,
+      "id": 20
+    }
+  ]
 }

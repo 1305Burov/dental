@@ -10,13 +10,14 @@
         height: 38px;
         margin: 16px 0;
         padding: 9px 12px;
+        border: 0;
         box-sizing: border-box;
         cursor: pointer;
         &-patient {
             background-color: #C0FFAA;
         }
         &-note {
-            background-color: #FFFB8F;
+            background-color: #FDFFAA;
         }
         
         &::after {

@@ -28,7 +28,9 @@ input[type=number]::-webkit-inner-spin-button {
                 margin: 0;
             }
         }
-        
+        & .button {
+            margin-top: 32px;
+        }
         & .form {
             &__date {
                 position: absolute;
@@ -64,6 +66,7 @@ input[type=number]::-webkit-inner-spin-button {
                     background-color: #C0FFAA;
                 }
             }
+            
             
         }
     }

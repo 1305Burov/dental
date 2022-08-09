@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-export const TimePicker = ({freeTime, chosenTime}) => {
+export const TimePicker = ({freeTime, chosenTime, className}) => {
     const { dayInSeconds } = useParams();
 
     const [isOpenFrom, setIsOpenFrom] = useState(false);
@@ -52,10 +52,10 @@ export const TimePicker = ({freeTime, chosenTime}) => {
 
     return (
         <div className='dropdown__timepicker-wrapper'>
-            <input className="dropdown__timepicker" type="hidden" name="from" defaultValue={inputValueFrom} />
+            <input className="dropdown__timepicker" type="hidden" name="from" defaultValue={inputValueFrom} required />
             <p>C:</p>
             <div className="dropdown__wrapper">
-                <div className={`dropdown__box dropdown__box-patient ${isOpenFrom ? 'dropdown__box-open' : '' }`}  onClick={() => setIsOpenFrom(p => !p)} >{inputValueFrom}</div>
+                <div className={`dropdown__box ${className} ${isOpenFrom ? 'dropdown__box-open' : '' }`}  onClick={() => setIsOpenFrom(p => !p)} >{inputValueFrom}</div>
                 {isOpenFrom && <ul className="dropdown__list list">
                     {
                         time && time.map(item => {
@@ -64,10 +64,10 @@ export const TimePicker = ({freeTime, chosenTime}) => {
                     }
                 </ul>}
             </div>
-            <input className="dropdown__timepicker" type="hidden" name="to" defaultValue={inputValueTo} />
+            <input className="dropdown__timepicker" type="hidden" name="to" defaultValue={inputValueTo} required />
             <p>До:</p>
             <div className="dropdown__wrapper">
-                <div className={`dropdown__box dropdown__box-patient ${isOpenTo ? 'dropdown__box-open' : '' }`}  onClick={() => setIsOpenTo(p => !p)} >{inputValueTo}</div>
+                <div className={`dropdown__box ${className} ${isOpenTo ? 'dropdown__box-open' : '' }`}  onClick={() => setIsOpenTo(p => !p)} >{inputValueTo}</div>
                 {isOpenTo && <ul className="dropdown__list list">
                     {
                         

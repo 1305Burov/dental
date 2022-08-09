@@ -13,4 +13,16 @@ export function getDoctorsThunk() {
     }
 }
 
+export function updateDoctorThunk(id, doctors) {
+    return (dispatch, getState) => {
+        updateDoctorAxios(id, doctors)
+            .then(doctors => dispatch(updateDoctor(doctors)))
+            .catch(err => {
+                alert('something went wrong! Try again later');
+                console.error(err);
+            })
+
+    }
+}
+
 

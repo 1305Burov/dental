@@ -11,7 +11,7 @@ export const GetDoctors = () => {
     useEffect(() => {
         dispatch(getDoctorsThunk());
     }, [])
-
+    
     useEffect(() => {
         doctors.length && dispatch(setActiveDoctor(doctors[0]));
     }, [doctors])
@@ -21,7 +21,6 @@ export const GetDoctors = () => {
         const DoctorIdx = doctors.findIndex(doctor => doctor.id === doctorId);
         dispatch(setActiveDoctor(doctors[DoctorIdx]));
     }
-
     return (
         <>
             <select onChange={(e) => setActiveDoc(e)}>
