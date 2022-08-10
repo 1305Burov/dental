@@ -1,22 +1,28 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { getActiveDoctor } from "../../store/activeDoctor/actionCreators";
 import { activeDoctorSelector } from "../../store/activeDoctor/selectors";
 import { appointmentsSelector } from "../../store/appointments/selectors";
-import { getAppointmentThunk } from "../../store/appointments/thunk";
+import { getAppointmentThunk, getTodaysAppointmentsThunk } from "../../store/appointments/thunk";
 import { AppointmentForm } from "../AppointmentForm/AppointmentForm";
 
 export const Schedual = ({date}) => {
-    const dispatch = useDispatch();
-    const activeDoctor = useSelector(activeDoctorSelector); 
     const appointments = useSelector(appointmentsSelector);
+    const activeDoctor = useSelector(activeDoctorSelector); 
+    const dispatch = useDispatch();
     const [showAppointmentForm, setShowAppointmentForm] = useState(false);
     const [chosenTime, setchosenTime] = useState('');
-    
+   
     useEffect(() => {
         dispatch(getActiveDoctor())
-        dispatch(getAppointmentThunk());
     }, [])
+
+    useEffect(() => {
+        dispatch(getTodaysAppointmentsThunk(date, activeDoctor.id));
+        // dispatch(getAppointmentThunk());
+    }, [activeDoctor, date])
+    
 
     let timeArr = [], h, m;
     const from = 7;
@@ -32,35 +38,40 @@ export const Schedual = ({date}) => {
         }
     }
 
-    const todaysAppointments = activeDoctor.doctorName ? appointments.filter(appoitment => {
-        if (appoitment.date === date && activeDoctor.id === appoitment.doctorId) return appoitment;
-    }): [];
+
+    // const todaysAppointments = activeDoctor.doctorName ? appointments.filter(appoitment => {
+    //     if (appoitment.date === date && activeDoctor.id === appoitment.doctorId) return appoitment;
+    // }): [];
 
     const timeWithAppointments = timeArr.reduce((readyTime, time, i) => {
-        todaysAppointments.map((app) => {
+        appointments.map((app) => {
             if (time === app.time.from) {
                 time = app.isAppointment ? {
                         time: `${time}`, 
                         name: app.name,
-                        type: app.isAppointment
+                        type: app.isAppointment,
+                        id: app.id
                     }
                     : {
                         time: `${time}`, 
                         name: app.name,
-                        type: app.isAppointment
+                        type: app.isAppointment,
+                        id: app.id
                     }
                 while(timeArr[i + 1] !== app.time.to) {
                     timeArr[i + 1] = {
                         time: `${timeArr[i + 1]}`, 
                         name: '',
-                        type: app.isAppointment 
+                        type: app.isAppointment,
+                        id: app.id 
                     };
                     i++;  
                 }
                 timeArr[i + 1] = {
                     time: `${timeArr[i + 1]}`,
                     name: '',
-                    type: app.isAppointment 
+                    type: app.isAppointment,
+                    id: app.id 
                 }
             }
         })
@@ -70,13 +81,13 @@ export const Schedual = ({date}) => {
     }, []) ;
     
     let freeTime = [];
-  
+
     return (
         <div className="schedual">
             {timeWithAppointments.map((time, index) => {
                 if (typeof time === 'object') {
-                    return time.type ? <div key={time.time} className='schedual__time engaged-patient'>{time.time} {time.name && ` - ${time.name}`}</div>
-                        : <div key={time.time} className='schedual__time engaged-note'>{time.time} {time.name && ` - ${time.name}`}</div>
+                    return time.type ? <Link to={`/appointment/${time.id}`}  key={time.time} className='schedual__time engaged-patient'>{time.time} {time.name && ` - ${time.name}`}</Link>
+                        : <Link to={`/appointment/${time.id}`} key={time.time} className='schedual__time engaged-note'>{time.time} {time.name && ` - ${time.name}`}</Link>
                 }else {
                     freeTime.push(time);
                     return typeof timeWithAppointments[index + 1] === 'object' || timeWithAppointments[index] === timeWithAppointments[timeWithAppointments.length - 1]

@@ -1,3 +1,3 @@
 export function appointmentsSelector(state) {
-    return state.patients;
+    return state.appoitments;
 }

@@ -5,7 +5,7 @@ import { DayString } from "../DayString/DayString";
 export const GetWeek = () => {
     const [numWeek, setNumWeek] = useState(0);
     const week = [];
-   
+    
     for (let i = 0 + numWeek; i < 7 + numWeek; i++) {
         const date = new Date();
         date.setDate(date.getDate() + i);

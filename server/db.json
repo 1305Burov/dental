@@ -295,6 +295,30 @@
       },
       "isAppointment": true,
       "id": 20
+    },
+    {
+      "doctorId": 0,
+      "name": "fwef",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "14:30",
+        "to": "15:15"
+      },
+      "isAppointment": false,
+      "id": 21
+    },
+    {
+      "doctorId": 1,
+      "name": "fwef",
+      "note": "",
+      "date": "9 7 2022",
+      "time": {
+        "from": "11:30",
+        "to": "12:00"
+      },
+      "isAppointment": false,
+      "id": 22
     }
   ]
 }

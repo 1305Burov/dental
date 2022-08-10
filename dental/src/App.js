@@ -1,24 +1,16 @@
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Calendar } from "./components/Calendar/Calendar";
-import { GetDoctors } from "./components/GetDoctors/GetDoctors";
-import { GetPatients } from './components/GetPatients/GetPatients';
-
-
+import { Calendar } from './components/Calendar/Calendar';
+import { Routes, Route } from 'react-router-dom';
+import { OpenAppointment } from './components/OpenAppointment/OpenAppointment';
 
  
 export default function App() {
     
     return (
-        <>
-            <GetDoctors />
-            <div className='flex'>
-                <Calendar />
-                <GetPatients />
-            </div>
-            {/* <Routes>
-                <Route path="/doctors" element={ <GetDoctors /> } />
-                <Route path="/calendar/*" element={ <Calendar /> } />
-            </Routes>             */}
+        <>  
+            <Routes>
+                <Route path="*" element={ <Calendar /> } />
+                <Route path="appointment/:appointmentId" element={ <OpenAppointment /> } />
+            </Routes>
         </>
     ) 
     

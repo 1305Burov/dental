@@ -1,0 +1,1 @@
+export const GET_APPOINTMENT = 'GET_APPOINTMENT';
