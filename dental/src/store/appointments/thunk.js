@@ -38,3 +38,27 @@ export function newAppointmentThunk(newAppointment) {
     }
 }
 
+export function removeAppointmentThunk(appointmentId) {
+    return (dispatch) => {
+        deleteAppointmentAxios(appointmentId)
+        .then((appointmentId) => {
+            dispatch(removeAppointment(appointmentId));
+        })
+        .catch((err) => {
+            alert('Something wrong! Try again later.');
+            console.error(err);
+        })
+    }
+}
+
+export function updateAppointmentThunk(id, appointment) {
+    return (dispatch, getState) => {
+        updateAppointmentAxios(id, appointment)
+            .then(appointment => dispatch(updateAppointment(appointment)))
+            .catch(err => {
+                alert('something went wrong! Try again later');
+                console.error(err);
+            })
+
+    }
+}
