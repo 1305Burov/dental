@@ -1,0 +1,13 @@
+.create-patient {
+    padding: 48px 32px;
+    user-select: none;
+    & .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__input, &__textarea {
+            border: 0;
+        }
+    }
+    
+}

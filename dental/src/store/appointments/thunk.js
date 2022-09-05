@@ -1,17 +1,18 @@
 import { getAppointmentsAxios, getAppointmentAxios, getTodaysAppointmentsAxios, createAppointmentAxios, updateAppointmentAxios, deleteAppointmentAxios } from "../../api/appointments";
 import { createAppointment, removeAppointment, getAppointment, updateAppointment, getOneAppointment } from "../../store/appointments/actionCreators";
+import { updateDoctorThunk } from "../doctors/thunk";
 
-export function getAppointmentThunk() {
-    return (dispatch, getState) => {
-        getAppointmentsAxios()
-            .then(appointments => dispatch(getAppointment(appointments)))
-            .catch(err => {
-                alert('something went wrong! Try again later');
-                console.error(err);
-            })
+// export function getAppointmentThunk() {
+//     return (dispatch, getState) => {
+//         getAppointmentsAxios()
+//             .then(appointments => dispatch(getAppointment(appointments)))
+//             .catch(err => {
+//                 alert('something went wrong! Try again later');
+//                 console.error(err);
+//             })
 
-    }
-}
+//     }
+// }
 
 export function getTodaysAppointmentsThunk(todayDate, doctorId) {
     return (dispatch, getState) => {
@@ -41,7 +42,7 @@ export function newAppointmentThunk(newAppointment) {
 export function removeAppointmentThunk(appointmentId) {
     return (dispatch) => {
         deleteAppointmentAxios(appointmentId)
-        .then((appointmentId) => {
+        .then(() => {
             dispatch(removeAppointment(appointmentId));
         })
         .catch((err) => {

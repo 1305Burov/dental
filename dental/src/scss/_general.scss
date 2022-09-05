@@ -1,9 +1,24 @@
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
-  }
+}
+
+body {
+    font-family: 'Inter', sans-serif !important;
+}
 
 .flex {
     display: flex;
+}
+
+.overflow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .2;
+    cursor: pointer;
 }
 
 .appointment {
@@ -39,19 +54,7 @@ input[type=number]::-webkit-inner-spin-button {
                 background-color: transparent;
                 border: 0;
             }
-            &__visit {
-                max-width: 72px;
-                margin-left: 16px;
-                padding: 0 12px;
-                box-sizing: border-box;
-                background: url('../../public/images/visitsIcon.svg') 12px no-repeat;
-                background-color: #C0FFAA;
-                border: none;
-                font-family: 'Inter', sans-serif;
-                text-align: end;
-                font-size: 16px;
-                color: #131313;
-            }
+            
             &__notes {
                 width: 100%;
                 height: 95px;

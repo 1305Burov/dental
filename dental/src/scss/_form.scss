@@ -1,0 +1,80 @@
+.form {
+    & label {
+        max-width: 408px;
+        width: 100%;
+    }
+    &__input {
+        display: block;
+        max-width: 408px;
+        width: 100%;
+        margin: 12px 0;
+        padding: 10px 12px;
+        background-color: #C0FFAA;
+        border: 0;
+        border-bottom: 2px solid #009D10;
+        color: #131313;
+        box-sizing: border-box;
+        &:disabled {
+            background-color: #C0FFAA;
+            border-bottom: 2px solid transparent;
+        }
+        &_note {
+            background-color: #FDFFAA;
+            border-bottom: 2px solid #ff9a02;
+        }
+        &_note:disabled {
+            background-color: #FDFFAA;
+            border-bottom: 2px solid transparent;
+        }
+    }
+    &__textarea {
+        display: block;
+        max-width: 408px;
+        width: 100%;
+        margin: 12px 0;
+        padding: 10px 12px;
+        background-color: #C0FFAA;
+        border: 0;
+        border-bottom: 2px solid #009D10;
+        color: #131313;
+        box-sizing: border-box;
+        resize: none;
+        &:disabled {
+            background-color: #C0FFAA;
+            border-bottom: 2px solid transparent;
+        }
+        &_note {
+            background-color: #FDFFAA;
+            border-bottom: 2px solid #ff9a02;
+        }
+        &_note:disabled {
+            background-color: #FDFFAA;
+            border-bottom: 2px solid transparent;
+        }
+    }
+    &__submit {
+        display: block;
+        margin: 32px 0;
+        padding: 16px 54px;
+        background-color: #C0FFAA;
+        border: 0;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: background-color .4s ease;
+        &:hover {
+            background-color: #8DFF65;
+        }
+    }
+    &__visit {
+        max-width: 72px;
+        margin-left: 16px;
+        padding: 0 12px;
+        box-sizing: border-box;
+        background: url('../../public/images/visitsIcon.svg') 12px no-repeat;
+        background-color: #C0FFAA;
+        border: none;
+        text-align: end;
+        font-size: 16px;
+        color: #131313;
+    }
+}

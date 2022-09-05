@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
 @import './scss/buttons.scss';
+@import './scss/form.scss';
 @import './scss/general.scss';
+@import './scss/header.scss';
+@import './scss/create-patient.scss';
 @import './scss/dropdown.scss';
 @import './scss/calendar.scss';
 @import './scss/patientsList.scss'; 
 @import './scss/toothpicker.scss';
+@import './scss/patient-card.scss';
 
 body {
   margin: 0;

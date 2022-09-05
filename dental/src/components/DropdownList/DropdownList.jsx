@@ -1,11 +1,8 @@
 import { useState } from "react";
 
-export const DropdownList = ({usedData, property, defaultText, inputName, setVisit}) => {
-    
+export const DropdownList = ({usedData, defaultText, inputName, setVisit}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [inputValue, setInputValue] = useState('');
-    
-    const list = property ? usedData[property] : usedData;
     
     return (
         <>  
@@ -14,7 +11,7 @@ export const DropdownList = ({usedData, property, defaultText, inputName, setVis
                 <div id={inputName} className={`dropdown__box dropdown__box-patient ${isOpen ? 'dropdown__box-open' : '' }`}  onClick={() => setIsOpen(p => !p)} >{inputValue ? JSON.parse(inputValue).name : defaultText}</div>
                 {isOpen && <ul className="dropdown__list list">
                     {
-                        list && list.map(item => {
+                        usedData && usedData.map(item => {
                             return <li onClick={() => setInputValue(p => p = JSON.stringify(item), setIsOpen(p => !p), setVisit ? setVisit(p => p = item.visitCount) : false) } key={item.id}><span>#{item.id }</span> {item.name}</li>
                         })
                     }

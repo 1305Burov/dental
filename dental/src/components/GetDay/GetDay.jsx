@@ -28,7 +28,7 @@ export const GetDay = () => {
             <button onClick={prevDate}>prev</button>
             <button onClick={nextDate}>next</button>
             <button onClick={today}>Today</button>
-            <Schedual date={formDay} />
+            {formDay && <Schedual date={formDay} />}
         </div>
     );
 }

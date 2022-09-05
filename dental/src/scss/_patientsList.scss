@@ -1,3 +1,16 @@
 .patient-list {
-    margin: 75px 50px;
+    margin: 48px 32px;
+    &__active {
+        color: #009D10;
+        font-weight: 700;
+    }
+    &__link {
+        display: block;
+        width: fit-content;
+        color: #131313;
+        text-decoration: none;
+        &:hover {
+            color: #009D10;
+        }
+    }
 }

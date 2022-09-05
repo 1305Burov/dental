@@ -26,9 +26,9 @@ export function getAppointment(appointments) {
     };
 }
 
-export function updateAppointment(appointments) {
+export function updateAppointment(appointment) {
     return {
         type: UPDATE_APPOINTMENTS,
-        payload: appointments
+        payload: appointment
     };
 }

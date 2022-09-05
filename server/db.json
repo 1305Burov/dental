@@ -2,281 +2,228 @@
   "doctors": [
     {
       "id": 0,
-      "doctorName": "Доктор 1",
-      "patients": [
-        {
-          "id": 0,
-          "name": "Иван Иванов",
-          "isTreated": true,
-          "visitCount": 3
-        },
-        {
-          "id": 1,
-          "name": "Иван1 Иванов",
-          "isTreated": true,
-          "visitCount": 3
-        },
-        {
-          "id": 2,
-          "name": "Иван2 Иванов",
-          "isTreated": true,
-          "visitCount": 2
-        }
-      ]
+      "doctorName": "Доктор 1"
     },
     {
       "id": 1,
-      "doctorName": "Доктор 2",
-      "patients": [
-        {
-          "id": 0,
-          "name": "Иван Иванов 333",
-          "isTreated": true,
-          "visitCount": 2
-        }
-      ]
+      "doctorName": "Доктор 2"
+    }
+  ],
+  "patients": [
+    {
+      "id": 1,
+      "doctorId": 0,
+      "name": "Федорова Полина Андреевна",
+      "birthdate": "12.02.1988",
+      "address": "Адресная 21",
+      "phone": "380991023265",
+      "notes": "Ничего приметного, даже аллергии нет...",
+      "allergy": "",
+      "isTreated": false,
+      "visitCount": 2
+    },
+    {
+      "id": 3,
+      "doctorId": 0,
+      "name": "Андре Полин Истахьевич",
+      "birthdate": "12.02.1948",
+      "address": "Адресная 52",
+      "phone": "3809988542312",
+      "notes": " ",
+      "allergy": "",
+      "isTreated": true,
+      "visitCount": 2
+    },
+    {
+      "doctorId": 0,
+      "name": "Архипов Александр Егорович",
+      "birthdate": "25.11.1994",
+      "address": "Любая улица 21",
+      "phone": "380971597532",
+      "notes": "",
+      "allergy": "Дождь",
+      "isTreated": true,
+      "visitCount": 1,
+      "id": 4
+    },
+    {
+      "doctorId": 0,
+      "name": "Новиков Артём Александрович",
+      "birthdate": "",
+      "address": "",
+      "phone": "380",
+      "notes": "",
+      "allergy": false,
+      "isTreated": false,
+      "visitCount": 1,
+      "id": 5
+    },
+    {
+      "doctorId": 1,
+      "name": "Головин Максим Владиславович",
+      "birthdate": "",
+      "address": "",
+      "phone": "380",
+      "notes": "",
+      "allergy": false,
+      "isTreated": false,
+      "visitCount": 1,
+      "id": 6
+    },
+    {
+      "doctorId": 1,
+      "name": "Быкова Кира Тимуровна",
+      "birthdate": "",
+      "address": "",
+      "phone": "380",
+      "notes": "",
+      "allergy": false,
+      "isTreated": true,
+      "visitCount": 2,
+      "id": 7
+    },
+    {
+      "doctorId": 1,
+      "name": "Соловьев Владислав Фёдорович",
+      "birthdate": "25.11.1994",
+      "address": "Адресная 21",
+      "phone": "38065465465",
+      "notes": "",
+      "allergy": "Иглы ",
+      "isTreated": false,
+      "visitCount": 1,
+      "id": 8
+    },
+    {
+      "doctorId": 1,
+      "name": "Федорова Полина Андреевна 1",
+      "birthdate": "12.02.1988",
+      "address": "Адресная 21",
+      "phone": "380",
+      "notes": "",
+      "allergy": false,
+      "isTreated": false,
+      "visitCount": 1,
+      "id": 9
     }
   ],
   "appoitments": [
     {
-      "id": 1,
       "doctorId": 0,
-      "teethId": 11,
-      "name": "Alex",
-      "diagnos": "",
-      "healing": "",
-      "note": "",
-      "isAppointment": true,
-      "date": "2 7 2022",
-      "time": {
-        "from": "9:15",
-        "to": "10:30"
-      }
-    },
-    {
-      "id": 4,
-      "doctorId": 0,
-      "name": "Отдохнуть...",
-      "date": "2 7 2022",
-      "note": "",
-      "isAppointment": false,
-      "time": {
-        "from": "11:15",
-        "to": "15:00"
-      }
-    },
-    {
-      "doctorId": 0,
-      "teethId": 11,
-      "name": "Иван2 Иванов",
-      "diagnos": "some diagnos 2",
-      "healing": "some healings 2",
-      "note": "",
-      "date": "2 7 2022",
+      "teethId": 23,
+      "patientId": 1,
+      "name": "Федорова Полина Андреевна",
+      "diagnos": "some diagnos 12",
+      "healing": "some healings 1",
+      "note": "Some words\n",
+      "date": "16 7 2022",
       "time": {
         "from": "7:00",
-        "to": "7:30"
+        "to": "7:45"
       },
       "isAppointment": true,
+      "id": 1
+    },
+    {
+      "doctorId": 1,
+      "teethId": 32,
+      "patientId": 7,
+      "name": "Быкова Кира Тимуровна",
+      "diagnos": "some diagnos 1",
+      "healing": "some healings 1",
+      "note": "",
+      "date": "16 7 2022",
+      "time": {
+        "from": "7:00",
+        "to": "8:00"
+      },
+      "isAppointment": true,
+      "id": 3
+    },
+    {
+      "doctorId": 0,
+      "name": "new one",
+      "note": "",
+      "date": "30 7 2022",
+      "time": {
+        "from": "8:15",
+        "to": "9:30"
+      },
+      "isAppointment": false,
       "id": 5
     },
     {
       "doctorId": 0,
-      "teethId": 18,
-      "name": "Иван Иванов",
+      "teethId": 33,
+      "patientId": 3,
+      "name": "Андре Полин Истахьевич",
       "diagnos": "some diagnos 1",
-      "healing": "some healings 1",
+      "healing": "some healings 2",
       "note": "",
-      "date": "2 7 2022",
+      "date": "30 7 2022",
       "time": {
-        "from": "7:45",
-        "to": "8:00"
+        "from": "9:45",
+        "to": "10:45"
       },
       "isAppointment": true,
       "id": 6
     },
     {
       "doctorId": 0,
-      "name": "Some deal",
-      "note": "No info was wrote",
-      "date": "2 7 2022",
-      "time": {
-        "from": "8:15",
-        "to": "9:00"
-      },
-      "isAppointment": false,
-      "id": 7
-    },
-    {
-      "doctorId": 0,
-      "name": "2eawed",
-      "note": "",
-      "date": "2 7 2022",
-      "time": {
-        "from": "10:45",
-        "to": "11:00"
-      },
-      "isAppointment": false,
-      "id": 8
-    },
-    {
-      "doctorId": 0,
-      "teethId": 23,
-      "name": "Иван1 Иванов",
+      "teethId": 0,
+      "patientId": 1,
+      "name": "Федорова Полина Андреевна",
       "diagnos": "some diagnos 1",
       "healing": "some healings 1",
       "note": "",
-      "date": "9 7 2022",
-      "time": {
-        "from": "12:30",
-        "to": "12:45"
-      },
-      "isAppointment": true,
-      "id": 14
-    },
-    {
-      "doctorId": 1,
-      "teethId": "",
-      "name": "Иван Иванов 333",
-      "diagnos": "some diagnos 1",
-      "healing": "some healings 1",
-      "note": "34234",
-      "date": "9 7 2022",
-      "time": {
-        "from": "7:00",
-        "to": "7:15"
-      },
-      "isAppointment": true,
-      "id": 15
-    },
-    {
-      "doctorId": 1,
-      "name": "325610",
-      "note": "",
-      "date": "9 7 2022",
+      "date": "31 7 2022",
       "time": {
         "from": "7:30",
         "to": "8:30"
       },
-      "isAppointment": false,
-      "id": 16
-    },
-    {
-      "doctorId": 1,
-      "teethId": 24,
-      "name": "Иван Иванов 333",
-      "diagnos": "some diagnos 2",
-      "healing": "some healings 2",
-      "note": "",
-      "date": "9 7 2022",
-      "time": {
-        "from": "8:45",
-        "to": "10:00"
-      },
       "isAppointment": true,
-      "id": 17
-    },
-    {
-      "doctorId": 1,
-      "teethId": 22,
-      "name": "Иван Иванов 333",
-      "diagnos": "some diagnos 1",
-      "healing": "some healings 1",
-      "note": "",
-      "date": "9 7 2022",
-      "time": {
-        "from": "10:30",
-        "to": "11:00"
-      },
-      "isAppointment": true,
-      "id": 18
+      "id": 7
     },
     {
       "doctorId": 0,
-      "teethId": 23,
-      "name": "Иван2 Иванов",
-      "diagnos": "some diagnos 2",
-      "healing": "some healings 2",
-      "note": "",
-      "date": "9 7 2022",
-      "time": {
-        "from": "13:00",
-        "to": "13:15"
-      },
-      "isAppointment": true,
-      "id": 19
-    },
-    {
-      "doctorId": 1,
-      "name": "fwef",
-      "note": "",
-      "date": "9 7 2022",
-      "time": {
-        "from": "11:30",
-        "to": "12:00"
-      },
-      "isAppointment": false,
-      "id": 22
-    },
-    {
-      "doctorId": 0,
-      "teethId": 15,
-      "name": "Иван1 Иванов",
-      "diagnos": "some diagnos 1",
-      "healing": "some healings 1",
-      "note": "",
-      "date": "9 7 2022",
+      "name": "123123",
+      "note": "w123",
+      "date": "31 7 2022",
       "time": {
         "from": "7:00",
-        "to": "8:00"
+        "to": "7:15"
       },
-      "isAppointment": true,
-      "id": 23
+      "isAppointment": false,
+      "id": 8
+    }
+  ],
+  "diagnosis": [
+    {
+      "id": 1,
+      "name": "some diagnos 1",
+      "visitNumber": 1
     },
     {
-      "doctorId": 0,
-      "teethId": 38,
-      "name": "Иван1 Иванов",
-      "diagnos": "some diagnos 2",
-      "healing": "some healings 2",
-      "note": "",
-      "date": "9 7 2022",
-      "time": {
-        "from": "8:15",
-        "to": "8:45"
-      },
-      "isAppointment": true,
-      "id": 24
+      "id": 2,
+      "name": "some diagnos 2",
+      "visitNumber": 2
+    }
+  ],
+  "healings": [
+    {
+      "id": 1,
+      "name": "some healings 1",
+      "visitNumber": 1
     },
     {
-      "doctorId": 0,
-      "teethId": "",
-      "name": "Иван2 Иванов",
-      "diagnos": "some diagnos 1",
-      "healing": "some healings 1",
-      "note": "1111",
-      "date": "9 7 2022",
-      "time": {
-        "from": "9:00",
-        "to": "10:00"
-      },
-      "isAppointment": true,
-      "id": 25
+      "id": 2,
+      "name": "some healings 2",
+      "visitNumber": 2
     },
     {
-      "doctorId": 1,
-      "teethId": 25,
-      "name": "Иван Иванов 333",
-      "diagnos": "some diagnos 1",
-      "healing": "some healings 1",
-      "note": "",
-      "date": "9 7 2022",
-      "time": {
-        "from": "12:30",
-        "to": "13:00"
-      },
-      "isAppointment": true,
-      "id": 26
+      "name": "drugs",
+      "visitNumber": 1,
+      "id": 4
     }
   ]
 }

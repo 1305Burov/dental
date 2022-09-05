@@ -1,33 +1,30 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getActiveDoctor } from "../../store/activeDoctor/actionCreators";
 import { activeDoctorSelector } from "../../store/activeDoctor/selectors";
 import { newAppointmentThunk } from "../../store/appointments/thunk";
-import { updateDoctorThunk } from "../../store/doctors/thunk";
+import { patientsSelector } from "../../store/patients/selectors";
+import { updatePatientThunk } from "../../store/patients/thunk";
 import { DropdownList } from "../DropdownList/DropdownList";
 import { TimePicker } from "../TimePicker/TimePicker";
 import { ToothPick } from "../ToothPick/ToothPick";
 
-
 export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
     const { dayInSeconds } = useParams();
     const dispatch = useDispatch();
+
+    const patients = useSelector(patientsSelector);
     const activeDoctor = useSelector(activeDoctorSelector);
     
     const [isAppointment, setIsAppointment] = useState(true);
     const [visitNum, setVisitNum] = useState('');
     const [activeDay, setActiveDay] = useState(null);
 
-    
-    useEffect(() => {
-        dispatch(getActiveDoctor())
-    }, [])
-    
     useEffect(() => {
         const day = new Date(Number(dayInSeconds));
         setActiveDay(p => p = `${day.getDate()} ${day.getMonth()} ${day.getFullYear()}`);
     }, [dayInSeconds])
+
 
     const diagnosis = [
         {
@@ -69,6 +66,7 @@ export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
                     const newAppointment = {
                         "doctorId": Number(e.target.activeDoctor.value),
                         "teethId": Number(e.target.teethId.value), 
+                        "patientId": JSON.parse(e.target.patientName.value).id,
                         "name": JSON.parse(e.target.patientName.value).name,
                         "diagnos": JSON.parse(e.target.diagnosName.value).name,
                         "healing": JSON.parse(e.target.healingName.value).name,
@@ -80,14 +78,17 @@ export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
                         },
                         isAppointment,
                     }
-
-                    const patientIdx = activeDoctor.patients.findIndex(patient => patient.id === JSON.parse(e.target.patientName.value).id);
-                    activeDoctor.patients[patientIdx].isTreated = true;
-                    activeDoctor.patients[patientIdx].visitCount++;
-
-                    dispatch(updateDoctorThunk(activeDoctor.id, activeDoctor));
+                   
+                    const patientId = JSON.parse(e.target.patientName.value).id;
+                    const patientIdx = patients.findIndex(patient => patient.id === patientId);
+                    patients[patientIdx].isTreated = true;
+                    patients[patientIdx].visitCount++;
+                    
+                  
                     dispatch(newAppointmentThunk(newAppointment));
+                    dispatch(updatePatientThunk(patientId, patients[patientIdx]));
                     setShowProp(false);
+                    
                 }catch (error) {
                     if (error.name === "SyntaxError") {
                         alert('Заполните все формы');
@@ -136,7 +137,7 @@ export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
                             <input className="form__date" type="text" defaultValue={activeDay} name='date' disabled />
                             <input type="hidden" defaultValue={activeDoctor.id} name='activeDoctor' disabled />
                             <div className="flex">
-                                <DropdownList usedData={activeDoctor} property={'patients'} defaultText={'Пациент'} inputName={'patientName'} setVisit={setVisitNum} />
+                                <DropdownList usedData={patients} defaultText={'Пациент'} inputName={'patientName'} setVisit={setVisitNum} />
                                 <input type="number" className="form__visit" value={visitNum} disabled />
                             </div>
                                 <DropdownList usedData={visitDiagnosis} inputName={'diagnosName'} defaultText={'Диагноз'} />

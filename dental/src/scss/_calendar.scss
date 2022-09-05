@@ -1,14 +1,20 @@
 .calendar {
     width: fit-content;
-    margin: 75px 50px;
+    margin: 48px 32px;
     & .engaged {
         &-note {
             background-color: #FDFFAA;
             cursor: pointer;
+            &:hover {
+                background-color: #FCFF61;
+           }
         }
         &-patient {
             background-color: #C0FFAA;
             cursor: pointer;
+           &:hover {
+                background-color: #8DFF65;
+           }
         }
     }
     & .schedual {
