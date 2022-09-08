@@ -1,0 +1,16 @@
+.controll {
+    width: 100%;
+    margin: 20px 0;
+    gap: 20px;
+    align-items: center;
+    justify-content: space-between;
+    &__date {
+        flex: 1 1 auto;
+        font-weight: 600;
+        font-size: 24px;
+        text-align: center;
+    }
+    & > button {
+        margin: 0;
+    }
+}

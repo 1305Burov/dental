@@ -7,11 +7,12 @@
         display: block;
         max-width: 408px;
         width: 100%;
-        margin: 12px 0;
-        padding: 10px 12px;
+        margin: 10px 0;
+        padding: 16px;
         background-color: #C0FFAA;
         border: 0;
         border-bottom: 2px solid #009D10;
+        font-size: 16px;
         color: #131313;
         box-sizing: border-box;
         &:disabled {
@@ -37,6 +38,7 @@
         border: 0;
         border-bottom: 2px solid #009D10;
         color: #131313;
+        font-size: 16px;
         box-sizing: border-box;
         resize: none;
         &:disabled {
@@ -55,10 +57,11 @@
     &__submit {
         display: block;
         margin: 32px 0;
-        padding: 16px 54px;
+        padding: 16px 56px;
         background-color: #C0FFAA;
         border: 0;
         box-sizing: border-box;
+        font-size: 16px;
         cursor: pointer;
         transition: background-color .4s ease;
         &:hover {

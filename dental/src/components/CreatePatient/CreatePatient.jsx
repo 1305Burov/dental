@@ -31,7 +31,7 @@ export const CreatePatient = () => {
 
     return (
         <main className="create-patient">
-            <button onClick={() => navigate(-1)}>Назад</button>
+            <button className="button_back" onClick={() => navigate(-1)}></button>
             <form className="create-patient__form form" onSubmit={createNewPatient}>
                 <label>
                     ФИО

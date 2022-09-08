@@ -25,9 +25,11 @@ export const GetPatients = () => {
 
     return (
         <div className="patient-list">
-            <button onClick={filterPatients}>{isOnTreat ? 'All' : 'On treat'}</button>
-            <input className="patient-list_search" placeholder="Поиск" onInput={(e) => {setSearchedValue(p => p = e.target.value.toLowerCase())}} />
-            <p className="patient-list__active">{isOnTreat ? 'На лечении' : 'Все'}</p>
+            <div className="patient-list__box">
+                <button className="button_small" onClick={filterPatients}>{isOnTreat ? 'Все' : 'На лечении'}</button>
+                <input className="patient-list__search" placeholder="Поиск" onInput={(e) => {setSearchedValue(p => p = e.target.value.toLowerCase())}} />
+            </div>
+                <p className="patient-list__active">{isOnTreat ? 'На лечении' : 'Все'}</p>
             {activeDoctor.doctorName && patients.map(patient => {
                 if (patient.name.toLowerCase().includes(searchedValue) || searchedValue === '') {
                     if (isOnTreat) {

@@ -6,7 +6,7 @@ import { CreatePatient } from './components/CreatePatient/CreatePatient';
 import { Settings } from './components/Settings/Settings';
 
 export default function App() {
-    
+      
     return (
         <>  
             <Header/>

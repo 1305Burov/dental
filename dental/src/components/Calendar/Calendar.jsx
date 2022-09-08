@@ -7,19 +7,17 @@ export const Calendar = () => {
     const location = useLocation();
 
     return (
-        <>
-            <div className='flex'>
-                <div className="calendar">  
-                    {location.pathname === '/' ? <Link to={`day/${Date.now()}`}>Day</Link> : <Link to="/">Week</Link> }
-                    <Routes>
-                        <Route path="/" element={ <GetWeek /> } />
-                        <Route path="day/:dayInSeconds" element={ <GetDay /> } />
-                    </Routes>
-                </div>
-                
-                <GetPatients /> 
+        <div className='flex wrapper'>
+            <div className="calendar">  
+                <div className='calendar__link-wrapper'>{location.pathname === '/' ? <Link className='link button_small' to={`day/${Date.now()}`}>День</Link> : <Link className='link button_small' to="/">Неделя</Link> }</div>
+                <Routes>
+                    <Route path="/" element={ <GetWeek /> } />
+                    <Route path="day/:dayInSeconds" element={ <GetDay /> } />
+                </Routes>
             </div>
-        </>
+            
+            <GetPatients /> 
+        </div>
     );
 }
 

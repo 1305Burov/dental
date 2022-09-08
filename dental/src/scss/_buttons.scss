@@ -1,15 +1,52 @@
 .button {
+    font-family: 'Inter', sans-serif;
     display: block;
-    width: 192px;
+    width: 200px;
     height: 48px;
     margin: 0 auto;
-    padding: 16px 32px;
+    padding: 12px 32px;
     background-color: #C0FFAA;
     border: 0;
+    font-size: 16px;
     box-sizing: border-box;
     cursor: pointer;
+    &:hover {
+        background-color: #8DFF65;
+    }
     &-note {
         background-color: #FDFFAA;
+        &:hover {
+            background-color: #FCFF61;
+        }
+    }
+    &_small {
+        display: inline-block;
+        height: unset;
+        width: unset;
+        padding: 0;
+        background-color: transparent;
+        border:0;
+        font-weight: 400;
+        font-size: 16px;
+        cursor: pointer;
+        &:hover {
+            color: #009D10;
+        }
+    }
+    &_add {
+        font-family: 'Inter', sans-serif;
+        width: 200px;
+        height: 48px;
+        margin: 0;
+        padding: 12px 32px;
+        background-color: #C0FFAA;
+        border: 0;
+        font-size: 16px;
+        box-sizing: border-box;
+        cursor: pointer;
+        &:hover {
+            background-color: #8DFF65;
+        }
     }
 }
 
@@ -22,4 +59,29 @@
     background: url('../../public/images/close-icon.svg') center center / cover no-repeat;
     border: 0;
     cursor: pointer;
+}
+
+.button_back {
+    width: 24px;
+    height: 21px;
+    background: url('../../public/images/back.svg') center center / cover no-repeat;
+    border: 0;
+    cursor: pointer;
+}
+
+.button_delete {
+    border: 0;
+    background-color: transparent;
+    color: #FF5151;
+    cursor: pointer;
+}
+
+.button_status {
+    background-color: transparent;
+    border: 0;
+    color: #131313;
+    cursor: pointer;
+    &:hover {
+        background-color: #C0FFAA;
+    }
 }

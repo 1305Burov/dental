@@ -34,26 +34,31 @@ export const DoctorsSettings = () => {
 
     return (
         <>
-            <div>
-                <button onClick={() => setAddDoc((p) => p = !p) }>{addDoc ? 'Отменить' : 'Добавить доктора'}</button>
-                {!addDoc && !delDoc && <button onClick={() => setDelDoc((p) => p = !p) } >Удалить доктора</button>}
+            <div className="settings__doctor">
+                <button className="button" onClick={() => setAddDoc((p) => p = !p) }>Добавить доктора</button>
+                <button className="button" onClick={() => setDelDoc((p) => p = !p) } >Удалить доктора</button>
             </div>
 
             {
                 addDoc && 
-                <form onSubmit={createDoctor}>
-                    <input type="text" name="doctor" />
-                    <button type="submit">Добавить</button>
-                </form>
+                <div>
+                    <div className="overflow"></div>
+                    <form className="settings__form" onSubmit={createDoctor}>
+                        <input type="text" name="doctor" placeholder="Введите имя"/>
+                        <button className="button" type="submit">Добавить</button>
+                        <button className="button button_delete" type="button" onClick={() => setAddDoc(false) }>Отмена</button>
+                    </form>
+                </div>
             }
 
             {
                 delDoc && 
                 <div>
-                    <form onSubmit={deleteDoctor}>
-                        <p>Вы точно хотите удалить {doctor.doctorName}?</p>
-                        <button type="submit">Да</button>
-                        <button type="button" onClick={() => setDelDoc(false) }>Отмена</button>
+                    <div className="overflow"></div>
+                    <form className="settings__form" onSubmit={deleteDoctor}>
+                        <p>Вы точно хотите удалить <span>{doctor.doctorName}</span> !?</p>
+                        <button className="button" type="submit">Да</button>
+                        <button className="button button_delete" type="button" onClick={() => setDelDoc(false) }>Отмена</button>
                     </form>
                 </div>
             }

@@ -28,7 +28,7 @@ export const GetDoctors = () => {
     }
     return (
         <>
-            <select value={activeDoctor.id} onChange={(e) => setActiveDoc(e)} >
+            <select className="header__select" value={activeDoctor.id} onChange={(e) => setActiveDoc(e)} >
                 {doctors.map((doctor) => {
                     return <option value={doctor.id} key={doctor.id}>{doctor.doctorName}</option>
                 })}

@@ -1,5 +1,7 @@
 .patient-list {
-    margin: 48px 32px;
+    width: 305px;
+    margin: 32px;
+    overflow: auto;
     &__active {
         color: #009D10;
         font-weight: 700;
@@ -11,6 +13,24 @@
         text-decoration: none;
         &:hover {
             color: #009D10;
+        }
+    }
+    &__search {
+        margin: 0 0 0 12px;
+        border: 0;
+        border-bottom: 2px solid #c4c4c4;
+        font-size: 16px;
+        &:focus {
+            border-bottom: 2px solid #009D10;
+            outline: 0;
+        }
+    }
+    &__box {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        & > .button  {
+            margin: 0;
         }
     }
 }

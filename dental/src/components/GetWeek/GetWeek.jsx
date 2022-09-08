@@ -27,19 +27,18 @@ export const GetWeek = () => {
 
     
     return (
-        <>
-            <ul>
+        <>  
+            <div className="flex controll">
+                <button className="button" onClick={prevWeek}>Предыдущая</button>
+                <button className="button" onClick={nextWeek}>Следующая</button>   
+            </div>
+            <ul className="week">
                 {week.map((day) => {
-                    return <Link to={`/day/${Date.parse(day.date)}`}  key={day.date}>
-                            <li>
-                                <DayString date={day.date} />
-                                {String(new Date()) === String(day.date) ? ' today' : '' } 
-                            </li>
-                        </Link>
+                    return <li className={`week__day ${String(new Date()) === String(day.date) ? 'week__day_today' : '' }`} key={day.date}><Link className="link week__link" to={`/day/${Date.parse(day.date)}`}  >
+                            <DayString date={day.date} /> 
+                        </Link></li>
                 })}
             </ul>
-            <button onClick={prevWeek}>prev</button>
-            <button onClick={nextWeek}>next</button>   
         </>
     );
 }

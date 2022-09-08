@@ -1,0 +1,103 @@
+.settings {
+    // position: relative;
+    padding: 32px;
+    &__doctor {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & > .button {
+            width: 210px;
+            margin: 0 24px;
+        }
+    }
+    &__form {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+        height: 120px;
+        padding: 32px;
+        background-color: #fff;
+        & > .button {
+           display: inline-block;
+           &_delete {
+            &:hover {
+                background-color: #ffdcdc;
+            }
+           }
+        }
+        & input {
+            height: 48px;
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 32px;
+            background-color: #C0FFAA;
+            box-sizing: border-box;
+            border: 0;
+        }
+        & p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            & > span {
+                font-weight: 600;
+            }
+        }
+    }
+    &__section {
+        font-size: 24px;
+        font-weight: 500;
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 8px;
+        padding: 8px;
+        cursor: pointer;
+        
+        & > span {
+            max-width: 45%;
+            word-wrap: break-word;
+            background-color: #C0FFAA;
+            padding: 12px;
+        }
+        & > button {
+            display: none;
+            padding: 12px;
+            background-color: #FF5151;
+            border: 0;
+            color: #fff;
+            cursor: pointer;
+            &:hover {
+                background-color: red;
+            }
+        }
+        &:hover {
+            background-color: rgb(202, 202, 202);
+            & > button {
+                display: block;
+            }
+        }
+    }
+    .form__visit {
+        width: 100px;
+        padding: 12px;
+        margin: 0 24px;
+    }
+    &__input {
+        height: 48px;
+        width: 400px;
+        padding: 20px;
+        margin-bottom: 32px;
+        background-color: #C0FFAA;
+        box-sizing: border-box;
+        border: 0;
+    }
+    &__list {
+        height: 150px;
+        overflow: auto;
+        margin: 32px 0;
+        background-color: #f4f4f4;
+
+    }
+}

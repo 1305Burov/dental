@@ -32,21 +32,20 @@ export const DiagnosesSettings = () => {
 
     return (
         <div>
-            <span>Диагнозы:</span>
-            <ul>
+            <span className="settings__section">Диагнозы:</span>
+            <ul className="settings__list">
                 {diagnoses.map((diagnosis, index) => {
-                    return <li key={index} >
+                    return <li className="settings__item" key={index} >
                             <span>{diagnosis.name}</span>
                             <p className="form__visit">{diagnosis.visitNumber}</p>
                             <button onClick={() => deleteDiagnosis(diagnosis.id)}>delete</button>
-                            {diagnosis.id}
                         </li>    
                 })}
             </ul>
             <form onSubmit={addDiagnosis}>
-                <input type="text" name="diagnosis" placeholder="Новый диагноз" />
+                <input className="settings__input" type="text" name="diagnosis" placeholder="Новый диагноз" />
                 <input className="form__visit" type="number" min={1} name="visit" defaultValue={1} />
-                <button type="submit">Добавить</button>
+                <button className="button_add" type="submit">Добавить</button>
             </form>
         </div>
     );

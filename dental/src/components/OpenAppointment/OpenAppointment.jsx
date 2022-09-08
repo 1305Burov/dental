@@ -111,13 +111,16 @@ export const OpenAppointment = ({ app, setOpenAppointmentData }) => {
                        
                     
                         <p>Время приема:</p>
-                        <input type="text" value={app.time.from} name="from" disabled />
-                        <input type="text" value={app.time.to} name="to" disabled />
+                        <input type="text" className="time" value={app.time.from} name="from" disabled />
+                        —
+                        <input type="text" className="time" value={app.time.to} name="to" disabled />
 
                         {isUpdating && <button type="submit">Изменить</button>}
                     </form>
-                    <button onClick={() => {setIsUpdating(p => !p)}}>{isUpdating ? 'Отмена' : 'Редактировать'}</button>
-                    <button onClick={() => {deleteAppointment()}}>Удалить</button>
+                    <div className="flex">
+                        <button className={`button ${app.isAppointment ? '' : 'button-note'}`} onClick={() => {setIsUpdating(p => !p)}}>{isUpdating ? 'Отмена' : 'Редактировать'}</button>
+                        <button className="button_delete" onClick={() => {deleteAppointment()}}>Удалить</button>
+                    </div>
                 </div>
             }
         </>        

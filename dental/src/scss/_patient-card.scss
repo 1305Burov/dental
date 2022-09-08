@@ -1,12 +1,42 @@
 .patient-card {
     padding: 48px 32px;
+    & > .flex {
+        width: 100%;
+        justify-content: center;
+    }
+    & .visit-box {
+        max-height: 450px;
+        height: 100%;
+        overflow: auto;
+    }
+    & .visit-history {
+        padding: 20px;
+        background-color: #eee;
+        cursor: pointer;
+        &:hover {
+            background-color: #c3c3c3;
+        }
+    }
+    & .toothpicker {
+        margin-top: 0;
+    }
     &__wrapper {
         max-width: 408px;
+        width: 100%;
         display: flex;
-        margin: 0 auto;
+        margin: 0 0 0 32px;
         flex-direction: column;
         align-items: center;
-        justify-content: center;    
+        justify-content: center; 
+    }
+    &__buttons {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        & > .button {
+            margin: 0;
+        }
     }
     &__form {
         display: flex;
@@ -20,11 +50,17 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        
     }
     &__visit {
         display: flex;
         align-items: center;
         gap: 12px;
+        margin-top: 16px;
+        & > .button_small {
+            padding: 10px 8px 10px 8px;
+            background-color: #C0FFAA;
+        }
         & .visit {
             &__count {
                 width: 64px;

@@ -9,13 +9,13 @@ export const Settings = () => {
     const dispatch = useDispatch();
 
     return (
-        <>  
-           <button onClick={() => navigate(-1)}>Назад</button>
-            <DoctorsSettings />
+        <section className="settings">  
+           <button className="button_back" onClick={() => navigate(-1)}></button>
 
+            <DoctorsSettings />
             <DiagnosesSettings />
             <HealingsSettings />
-        </>
+        </section>
     );
 }
 

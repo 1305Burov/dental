@@ -8,9 +8,9 @@ export const Header = () => {
         <header className='header'>
             <div className='header__box'>
                 <GetDoctors />
-                { location.pathname === '/settings' || location.pathname === '/create-patient' ? false : <Link to="settings">Настройки</Link> }    
+                { location.pathname === '/settings' || location.pathname === '/create-patient' ? false : <Link className='link link_settings' to="settings">Настройки</Link> }    
             </div>
-            { location.pathname === '/create-patient' || location.pathname === '/settings' ? false : <Link to="create-patient">Новый пациент</Link> }
+            { location.pathname === '/create-patient' || location.pathname === '/settings' ? false : <Link className='link link_patient' to="create-patient">Новый пациент</Link> }
         </header>
     );
 }

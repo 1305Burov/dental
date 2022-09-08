@@ -13,6 +13,7 @@ appointmentsApi.interceptors.response.use(
 export const getAppointmentsAxios = () => appointmentsApi.get();
 export const getAppointmentAxios = (appointmentId) => appointmentsApi.get(`/${appointmentId}`);
 export const getTodaysAppointmentsAxios = (todayDate, doctorId) => appointmentsApi.get(`?date=${todayDate}&doctorId=${doctorId}`);
+export const getPatientAppointmentsAxios = (patientId) => appointmentsApi.get(`?patientId=${patientId}`);
 export const createAppointmentAxios = (newAppointment) => appointmentsApi.post('', newAppointment);
 export const updateAppointmentAxios = (appointmentId, updateData) => appointmentsApi.patch(`/${appointmentId}`, updateData);
 export const deleteAppointmentAxios = (appointmentId) => appointmentsApi.delete(`/${appointmentId}`);

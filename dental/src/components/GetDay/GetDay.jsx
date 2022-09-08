@@ -24,10 +24,12 @@ export const GetDay = () => {
 
     return (
         <div>
-            <DayString date={day} />
-            <button onClick={prevDate}>prev</button>
-            <button onClick={nextDate}>next</button>
-            <button onClick={today}>Today</button>
+            <div className="flex controll">
+                <button className="button controll__prev" onClick={prevDate}>Предыдущий</button>
+                <span className="controll__date"> <DayString date={day} /> </span>
+                <button className="button controll__next" onClick={nextDate}>Следующий</button>
+                <button className="button controll__today" onClick={today}>Сегодня</button>
+            </div>
             {formDay && <Schedual date={formDay} />}
         </div>
     );

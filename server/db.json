@@ -19,8 +19,8 @@
       "phone": "380991023265",
       "notes": "Ничего приметного, даже аллергии нет...",
       "allergy": "",
-      "isTreated": false,
-      "visitCount": 2
+      "isTreated": true,
+      "visitCount": 1
     },
     {
       "id": 3,
@@ -32,7 +32,7 @@
       "notes": " ",
       "allergy": "",
       "isTreated": true,
-      "visitCount": 2
+      "visitCount": 3
     },
     {
       "doctorId": 0,
@@ -42,7 +42,7 @@
       "phone": "380971597532",
       "notes": "",
       "allergy": "Дождь",
-      "isTreated": true,
+      "isTreated": false,
       "visitCount": 1,
       "id": 4
     },
@@ -54,8 +54,8 @@
       "phone": "380",
       "notes": "",
       "allergy": false,
-      "isTreated": false,
-      "visitCount": 1,
+      "isTreated": true,
+      "visitCount": 3,
       "id": 5
     },
     {
@@ -195,6 +195,142 @@
       },
       "isAppointment": false,
       "id": 8
+    },
+    {
+      "doctorId": 0,
+      "teethId": 32,
+      "patientId": 4,
+      "name": "Архипов Александр Егорович",
+      "diagnos": "some diagnos 1",
+      "healing": "some healings 1",
+      "note": "",
+      "date": "5 8 2022",
+      "time": {
+        "from": "7:00",
+        "to": "7:45"
+      },
+      "isAppointment": true,
+      "id": 9
+    },
+    {
+      "doctorId": 0,
+      "name": "new one",
+      "note": "",
+      "date": "5 8 2022",
+      "time": {
+        "from": "8:00",
+        "to": "9:00"
+      },
+      "isAppointment": false,
+      "id": 10
+    },
+    {
+      "doctorId": 0,
+      "teethId": 31,
+      "patientId": 3,
+      "name": "Андре Полин Истахьевич",
+      "diagnos": "some diagnos 2",
+      "healing": "some healings 2",
+      "note": "",
+      "date": "5 8 2022",
+      "time": {
+        "from": "9:15",
+        "to": "10:30"
+      },
+      "isAppointment": true,
+      "id": 11
+    },
+    {
+      "doctorId": 0,
+      "teethId": 21,
+      "patientId": 1,
+      "name": "Федорова Полина Андреевна",
+      "diagnos": "some diagnos 2",
+      "healing": "some healings 2",
+      "note": "",
+      "date": "5 8 2022",
+      "time": {
+        "from": "10:45",
+        "to": "11:30"
+      },
+      "isAppointment": true,
+      "id": 12
+    },
+    {
+      "doctorId": 0,
+      "name": "dawdawd",
+      "note": "",
+      "date": "5 8 2022",
+      "time": {
+        "from": "11:45",
+        "to": "12:45"
+      },
+      "isAppointment": false,
+      "id": 13
+    },
+    {
+      "doctorId": 0,
+      "teethId": 33,
+      "patientId": 5,
+      "name": "Новиков Артём Александрович",
+      "diagnos": "some diagnos 1",
+      "healing": "some healings 1",
+      "note": "",
+      "date": "5 8 2022",
+      "time": {
+        "from": "13:00",
+        "to": "14:15"
+      },
+      "isAppointment": true,
+      "id": 14
+    },
+    {
+      "doctorId": 0,
+      "teethId": 17,
+      "patientId": 4,
+      "name": "Архипов Александр Егорович",
+      "diagnos": "some diagnos 1",
+      "healing": "some healings 1",
+      "note": "wdawdawdawd",
+      "date": "5 8 2022",
+      "time": {
+        "from": "14:30",
+        "to": "15:45"
+      },
+      "isAppointment": true,
+      "id": 15
+    },
+    {
+      "doctorId": 0,
+      "teethId": 33,
+      "patientId": 5,
+      "name": "Новиков Артём Александрович",
+      "diagnos": "some diagnos 2",
+      "healing": "some healings 2",
+      "note": "",
+      "date": "5 8 2022",
+      "time": {
+        "from": "16:00",
+        "to": "17:45"
+      },
+      "isAppointment": true,
+      "id": 16
+    },
+    {
+      "doctorId": 0,
+      "teethId": 18,
+      "patientId": 4,
+      "name": "Архипов Александр Егорович",
+      "diagnos": "some diagnos 2",
+      "healing": "some healings 2",
+      "note": "",
+      "date": "5 8 2022",
+      "time": {
+        "from": "18:00",
+        "to": "19:15"
+      },
+      "isAppointment": true,
+      "id": 17
     }
   ],
   "diagnosis": [
@@ -207,6 +343,11 @@
       "id": 2,
       "name": "some diagnos 2",
       "visitNumber": 2
+    },
+    {
+      "name": "dawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdawdaw",
+      "visitNumber": 1,
+      "id": 4
     }
   ],
   "healings": [

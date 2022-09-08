@@ -19,6 +19,7 @@ export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
     const [isAppointment, setIsAppointment] = useState(true);
     const [visitNum, setVisitNum] = useState('');
     const [activeDay, setActiveDay] = useState(null);
+    const [chosenTooth, setChosenTooth] = useState('');
 
     useEffect(() => {
         const day = new Date(Number(dayInSeconds));
@@ -86,7 +87,7 @@ export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
                     
                   
                     dispatch(newAppointmentThunk(newAppointment));
-                    dispatch(updatePatientThunk(patientId, patients[patientIdx]));
+                    dispatch(updatePatientThunk(patientId, patients[patientIdx])); //?
                     setShowProp(false);
                     
                 }catch (error) {
@@ -144,7 +145,7 @@ export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
                                 <DropdownList usedData={visitHealings} inputName={'healingName'} defaultText={'Лечение'} />
                                 <textarea type="text" className="form__notes form__notes-patient" placeholder='Заметки' name="note" />
                                 <TimePicker freeTime={freeTime} chosenTime={chosenTime} className='dropdown__box-patient' />
-                                <ToothPick />
+                                <ToothPick chosenTooth={chosenTooth} setChosenTooth={setChosenTooth} />
                                 <button type="submit" className="button">Отправить</button>
                         </form>
                     </div> : 

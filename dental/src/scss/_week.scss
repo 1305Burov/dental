@@ -1,0 +1,20 @@
+.week {
+    margin: 20px 0;
+    &__day {
+        &:hover {
+            background-color: #eeeeee;
+            cursor: pointer;
+        }
+        &_today {
+            background-color: #C0FFAA;
+            &:hover {
+                background-color: #8DFF65;
+            }
+        }
+    }
+
+    &__link  {
+        display: block;
+        padding: 10px;
+    }
+}
