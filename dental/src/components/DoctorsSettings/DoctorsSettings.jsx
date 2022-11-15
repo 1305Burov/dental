@@ -18,16 +18,16 @@ export const DoctorsSettings = () => {
     function createDoctor(e) {
         e.preventDefault();
         const doctor = {
-            doctorName: e.target.doctor.value.trim()
+            name: e.target.doctor.value.trim()
         }
 
-        doctor.doctorName.length > 0 && dispatch(createDoctorThunk(doctor))
+        doctor.name.length > 0 && dispatch(createDoctorThunk(doctor))
         setAddDoc(false);
     }
     
     function deleteDoctor(e) {
         e.preventDefault();
-        dispatch(deleteDoctorThunk(doctor.id));
+        dispatch(deleteDoctorThunk(doctor._id));
         dispatch(setActiveDoctor(doctors[0]));
         setDelDoc(false);
     }
@@ -56,7 +56,7 @@ export const DoctorsSettings = () => {
                 <div>
                     <div className="overflow"></div>
                     <form className="settings__form" onSubmit={deleteDoctor}>
-                        <p>Вы точно хотите удалить <span>{doctor.doctorName}</span> !?</p>
+                        <p>Вы точно хотите удалить <span>{doctor.name}</span> !?</p>
                         <button className="button" type="submit">Да</button>
                         <button className="button button_delete" type="button" onClick={() => setDelDoc(false) }>Отмена</button>
                     </form>

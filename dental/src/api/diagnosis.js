@@ -2,7 +2,7 @@ import axios from "axios";
 import { BASE_URL } from "../constants";
 
 const diagnosisApi = axios.create({
-    baseURL: `${BASE_URL}/diagnosis`,
+    baseURL: `${BASE_URL}/diagnoses`, //diagnosis
 })
 
 diagnosisApi.interceptors.response.use(

@@ -14,19 +14,18 @@ export const CreatePatient = () => {
         e.preventDefault();
         
         const formDate = {
-            doctorId: activeDoctor.id,
+            doctorId: activeDoctor._id,
             name: e.target.name.value,
             birthdate: e.target.birthdate.value,
             address: e.target.address.value,
             phone: e.target.phone.value,
             notes: e.target.notes.value,
-            allergy: allergyInput && e.target.allergy.value,
+            allergy: allergyInput ? e.target.allergy.value : '',
             isTreated: false,
             visitCount: 1
         }
         
-        dispatch(createPatientThunk(formDate));
-        navigate(-1);
+        dispatch(createPatientThunk(formDate, navigate));
     }
 
     return (

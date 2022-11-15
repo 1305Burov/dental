@@ -19,8 +19,9 @@ export const HealingsSettings = () => {
                 name: e.target.healing.value.trim(), 
                 visitNumber: Number(e.target.visit.value.trim())
             }
-
-           dispatch(createHealingThunk(healing))
+            
+            e.target.reset();
+            dispatch(createHealingThunk(healing))
         }
     
     }
@@ -35,10 +36,10 @@ export const HealingsSettings = () => {
             <span className="settings__section">Лечения:</span>
             <ul className="settings__list">
                 {healings.map((healing) => {
-                    return <li className="settings__item" key={healing.id} >
+                    return <li className="settings__item" key={healing._id} >
                             <span>{healing.name}</span>
                             <p className="form__visit">{healing.visitNumber}</p>
-                            <button onClick={() => deleteHealing(healing.id)}>delete</button>
+                            <button onClick={() => deleteHealing(healing._id)}>delete</button>
                         </li>    
                 })}
             </ul>

@@ -15,7 +15,7 @@ export const VisitHistory = ({id, teethId}) => {
         <div className="visit-box">
             {visits.map((visit) => {
                 if (!teethId) {
-                    return <div className="visit-history" key={visit.id}>
+                    return <div className="visit-history" key={visit._id}>
                         <span>Дата: {visit.date}</span>
                         <p> Зуб: {visit.teethId}</p>
                         <p> Диагноз: {visit.diagnos}</p>
@@ -24,7 +24,7 @@ export const VisitHistory = ({id, teethId}) => {
                     </div>
                 }
                 if (teethId == visit.teethId) {
-                    return <div className="visit-history" key={visit.id}>
+                    return <div className="visit-history" key={visit._id}>
                         <span>Дата: {visit.date}</span>
                         <p> Зуб: {visit.teethId}</p>
                         <p> Диагноз: {visit.diagnos}</p>

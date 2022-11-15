@@ -20,7 +20,7 @@
       "notes": "Ничего приметного, даже аллергии нет...",
       "allergy": "",
       "isTreated": true,
-      "visitCount": 1
+      "visitCount": 2
     },
     {
       "id": 3,
@@ -258,7 +258,7 @@
     },
     {
       "doctorId": 0,
-      "name": "dawdawd",
+      "name": "Make an appointment ",
       "note": "",
       "date": "5 8 2022",
       "time": {
@@ -331,6 +331,22 @@
       },
       "isAppointment": true,
       "id": 17
+    },
+    {
+      "doctorId": 0,
+      "teethId": 0,
+      "patientId": 1,
+      "name": "Федорова Полина Андреевна",
+      "diagnos": "some diagnos 1",
+      "healing": "some healings 1",
+      "note": "",
+      "date": "10 8 2022",
+      "time": {
+        "from": "7:00",
+        "to": "8:00"
+      },
+      "isAppointment": true,
+      "id": 18
     }
   ],
   "diagnosis": [

@@ -12,11 +12,11 @@ export function healingsReducer(state = initialState, action) {
         case CREATE_HEALING:
             return [...state, action.payload];
         case REMOVE_HEALING:
-            return state.filter(healing => healing.id !== action.payload);
+            return state.filter(healing => healing._id !== action.payload);
         case GET_HEALINGS:
             return action.payload;
         case UPDATE_HEALING:
-            const healingIdx = state.findIndex(healing => healing.id === action.payload.id);
+            const healingIdx = state.findIndex(healing => healing._id === action.payload.id);
             state[healingIdx] = action.payload;
             return [...state];
 

@@ -11,7 +11,7 @@ export const DiagnosesSettings = () => {
         dispatch(getDiagnosesThunk());
     }, []);
 
- 
+    
     function addDiagnosis(e) {
         e.preventDefault();
 
@@ -21,7 +21,7 @@ export const DiagnosesSettings = () => {
                 visitNumber: Number(e.target.visit.value.trim())
             }
 
-            
+            e.target.reset();
             dispatch(createDiagnosisThunk(diagnosis));
         }
     }
@@ -38,7 +38,7 @@ export const DiagnosesSettings = () => {
                     return <li className="settings__item" key={index} >
                             <span>{diagnosis.name}</span>
                             <p className="form__visit">{diagnosis.visitNumber}</p>
-                            <button onClick={() => deleteDiagnosis(diagnosis.id)}>delete</button>
+                            <button onClick={() => deleteDiagnosis(diagnosis._id)}>delete</button>
                         </li>    
                 })}
             </ul>

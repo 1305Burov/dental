@@ -15,7 +15,7 @@ export function getHealingsThunk() {
 export function createHealingThunk(healing) {
     return (dispatch, getState) => {
         createHealingAxios(healing)
-            .then(healing => dispatch(createHealing(healing) ))
+            .then(healing => dispatch(createHealing(healing)))
             .catch(err => {
                 alert('something went wrong! Try again later');
                 console.error(err);

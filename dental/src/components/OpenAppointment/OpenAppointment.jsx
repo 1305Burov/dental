@@ -16,7 +16,7 @@ export const OpenAppointment = ({ app, setOpenAppointmentData }) => {
     const [inputTeethId, setInputTeethId] = useState('');
 
     useEffect(() => {
-        if (app.id) {
+        if (app._id) {
             setInputName(p => p = app.name);
             setInputDiagnos(p => p = app.diagnos);
             setInputHealing(p => p = app.healing);
@@ -28,20 +28,19 @@ export const OpenAppointment = ({ app, setOpenAppointmentData }) => {
     function deleteAppointment() {
         if (app.isAppointment) {
             const patientId = app.patientId;
-            const patientIdx = patients.findIndex(patient => patient.id === patientId);
+            const patientIdx = patients.findIndex(patient => patient._id === patientId);
             patients[patientIdx].visitCount--;
             
             dispatch(updatePatientThunk(patientId, patients[patientIdx]));
         }
         
-        dispatch(removeAppointmentThunk(app.id));
+        dispatch(removeAppointmentThunk(app._id));
         setOpenAppointmentData(p => p = {});
     }
 
     function updateAppointment(e) {
         e.preventDefault();
         if (app.isAppointment) {
-
             const updatedAppointment = {
                 diagnos: e.target.diagnos.value,
                 healing: e.target.healing.value,
@@ -49,7 +48,7 @@ export const OpenAppointment = ({ app, setOpenAppointmentData }) => {
                 teethId: Number(e.target.teethId.value)
             }
 
-            dispatch(updateAppointmentThunk(app.id, updatedAppointment));
+            dispatch(updateAppointmentThunk(app._id, updatedAppointment));
 
         }else {
             const updatedAppointment = {
@@ -57,7 +56,7 @@ export const OpenAppointment = ({ app, setOpenAppointmentData }) => {
                 note: e.target.note.value,
             }
 
-            dispatch(updateAppointmentThunk(app.id, updatedAppointment));
+            dispatch(updateAppointmentThunk(app._id, updatedAppointment));
         }
 
         setIsUpdating(p => p = false);
@@ -67,7 +66,7 @@ export const OpenAppointment = ({ app, setOpenAppointmentData }) => {
     return (
         <>
             <div className="overflow" onClick={() => {setOpenAppointmentData(p => p = {})}}></div>
-            {app.id && 
+            {app._id && 
                 <div className="appointment__block">
                     <button className="button_close" onClick={() => {setOpenAppointmentData(p => p = {})}}></button>
 
@@ -115,10 +114,10 @@ export const OpenAppointment = ({ app, setOpenAppointmentData }) => {
                         —
                         <input type="text" className="time" value={app.time.to} name="to" disabled />
 
-                        {isUpdating && <button type="submit">Изменить</button>}
+                        {isUpdating && <button className="change__btn" type="submit">Изменить</button>}
                     </form>
                     <div className="flex">
-                        <button className={`button ${app.isAppointment ? '' : 'button-note'}`} onClick={() => {setIsUpdating(p => !p)}}>{isUpdating ? 'Отмена' : 'Редактировать'}</button>
+                        <button className={`button ${app.isAppointment ? '' : 'button-note'} ${!isUpdating ? '' : 'button_active'}`} onClick={() => {setIsUpdating(p => !p)}}>{isUpdating ? 'Отмена' : 'Редактировать'}</button>
                         <button className="button_delete" onClick={() => {deleteAppointment()}}>Удалить</button>
                     </div>
                 </div>

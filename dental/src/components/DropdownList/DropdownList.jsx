@@ -12,7 +12,7 @@ export const DropdownList = ({usedData, defaultText, inputName, setVisit}) => {
                 {isOpen && <ul className="dropdown__list list">
                     {
                         usedData && usedData.map(item => {
-                            return <li onClick={() => setInputValue(p => p = JSON.stringify(item), setIsOpen(p => !p), setVisit ? setVisit(p => p = item.visitCount) : false) } key={item.id}><span>#{item.id }</span> {item.name}</li>
+                            return <li onClick={() => setInputValue(p => p = JSON.stringify(item), setIsOpen(p => !p), setVisit ? setVisit(p => p = item.visitCount) : false) } key={item._id}> {item.visitCount && <span>#{item._id }</span>} {item.name}</li>
                         })
                     }
                 </ul>}

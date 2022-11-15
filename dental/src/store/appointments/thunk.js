@@ -1,5 +1,5 @@
-import { getAppointmentsAxios, getAppointmentAxios, getTodaysAppointmentsAxios, createAppointmentAxios, updateAppointmentAxios, deleteAppointmentAxios, getPatientAppointmentsAxios } from "../../api/appointments";
-import { createAppointment, removeAppointment, getAppointment, updateAppointment, getOneAppointment } from "../../store/appointments/actionCreators";
+import { getAppointmentsAxios, getAppointmentAxios, getTodaysAppointmentsAxios, createAppointmentAxios, updateAppointmentAxios, deleteAppointmentAxios, getPatientAppointmentsAxios, deletePatientAppointmentsAxios } from "../../api/appointments";
+import { createAppointment, removeAppointment, getAppointment, updateAppointment, getOneAppointment, removePatientAppointments } from "../../store/appointments/actionCreators";
 import { updateDoctorThunk } from "../doctors/thunk";
 
 // export function getAppointmentThunk() {
@@ -56,6 +56,19 @@ export function removeAppointmentThunk(appointmentId) {
         deleteAppointmentAxios(appointmentId)
         .then(() => {
             dispatch(removeAppointment(appointmentId));
+        })
+        .catch((err) => {
+            alert('Something wrong! Try again later.');
+            console.error(err);
+        })
+    }
+}
+
+export function removePatientAppointmentsThunk(patientId) {
+    return (dispatch) => {
+        deletePatientAppointmentsAxios(patientId)
+        .then(() => {
+            dispatch(removePatientAppointments(patientId));
         })
         .catch((err) => {
             alert('Something wrong! Try again later.');

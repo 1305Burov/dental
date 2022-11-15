@@ -12,7 +12,7 @@ export function doctorsReducer(state = initialState, action) {
         case CREATE_DOCTOR:
             return [...state, action.payload];
         case REMOVE_DOCTOR:
-            return state.filter(doctor => doctor.id !== action.payload);
+            return state.filter(doctor => doctor._id !== action.payload);
         case GET_DOCTORS:
             return action.payload;
         case UPDATE_DOCTORS:

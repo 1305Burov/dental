@@ -1,3 +1,22 @@
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #8DFF65 #ffffff;
+}
+
+*::-webkit-scrollbar {
+    width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #8DFF65;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
+
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }

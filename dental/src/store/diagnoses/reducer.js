@@ -11,8 +11,8 @@ export function diagnosesReducer(state = initialState, action) {
     switch (action.type) {
         case CREATE_DIAGNOSIS:
             return [...state, action.payload];
-        case REMOVE_DIAGNOSIS:
-            return state.filter(diagnosis => diagnosis.id !== action.payload);
+            case REMOVE_DIAGNOSIS:
+            return state.filter(diagnosis => diagnosis._id !== action.payload);
         case GET_DIAGNOSES:
             return action.payload;
         case UPDATE_DIAGNOSIS:
@@ -20,7 +20,7 @@ export function diagnosesReducer(state = initialState, action) {
             state[diagnosisIdx] = action.payload;
             return [...state];
 
-        default:
-            return state;
+            default:
+                return state;
     }
 }

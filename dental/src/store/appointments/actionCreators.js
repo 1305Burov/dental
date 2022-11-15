@@ -1,6 +1,7 @@
 import {
     CREATE_APPOINTMENT,
     REMOVE_APPOINTMENT,
+    REMOVE_PATIENT_APPOINTMENTS,
     GET_APPOINTMENTS,
     UPDATE_APPOINTMENTS
 } from "./actionTypes";
@@ -16,6 +17,13 @@ export function removeAppointment(appointmentId) {
     return {
         type: REMOVE_APPOINTMENT,
         payload: appointmentId
+    };
+}
+
+export function removePatientAppointments(patientId) {
+    return {
+        type: REMOVE_PATIENT_APPOINTMENTS,
+        payload: patientId
     };
 }
 

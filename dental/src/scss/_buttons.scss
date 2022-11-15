@@ -10,6 +10,7 @@
     font-size: 16px;
     box-sizing: border-box;
     cursor: pointer;
+    
     &:hover {
         background-color: #8DFF65;
     }
@@ -48,6 +49,12 @@
             background-color: #8DFF65;
         }
     }
+    &_active {
+        background-color: #FF5151;
+        &:hover {
+            background-color: #f79d9d;
+        }
+    }
 }
 
 .button_close {
@@ -84,4 +91,12 @@
     &:hover {
         background-color: #C0FFAA;
     }
+}
+
+
+.change__btn {
+    padding: 10px;
+    background-color: #C0FFAA;
+    border: 0;
+    cursor: pointer;
 }

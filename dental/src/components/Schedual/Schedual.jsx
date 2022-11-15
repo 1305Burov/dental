@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { activeDoctorSelector } from "../../store/activeDoctor/selectors";
 import { appointmentsSelector } from "../../store/appointments/selectors";
-import { getAppointmentThunk, getTodaysAppointmentsThunk } from "../../store/appointments/thunk";
-import { getPatientsThunk } from "../../store/patients/thunk";
+import { getTodaysAppointmentsThunk } from "../../store/appointments/thunk";
 import { AppointmentForm } from "../AppointmentForm/AppointmentForm";
 import { OpenAppointment } from "../OpenAppointment/OpenAppointment";
 
@@ -17,7 +16,11 @@ export const Schedual = ({date}) => {
     const [chosenTime, setchosenTime] = useState('');
     
     useEffect(() => {
-        dispatch(getTodaysAppointmentsThunk(date, activeDoctor.id));
+        dispatch(getTodaysAppointmentsThunk(date, activeDoctor._id));
+    }, [])
+
+    useEffect(() => {
+        dispatch(getTodaysAppointmentsThunk(date, activeDoctor._id));
     }, [activeDoctor, date, OpenAppointmentData])
     
     let timeArr = [], h, m;
@@ -35,25 +38,27 @@ export const Schedual = ({date}) => {
     }
 
 
-    // const todaysAppointments = activeDoctor.doctorName ? appointments.filter(appoitment => {
-    //     if (appoitment.date === date && activeDoctor.id === appoitment.doctorId) return appoitment;
-    // }): [];
+    // const todaysAppointments = activeDoctor.name ? appointments.filter(appoitment => {
 
-    const timeWithAppointments = timeArr.reduce((readyTime, time, i) => {
-        appointments.map((app) => {
+    //         if (appoitment.date === date && activeDoctor._id === appoitment.doctorId) return appoitment;
+    //     }): [];
+
+
+        const timeWithAppointments = timeArr.reduce((readyTime, time, i) => {
+            appointments.map((app) => {
             if (time === app.time.from) {
                 time = app.isAppointment ? [ {
                         time: `${time}`, 
                         name: app.name,
                         type: app.isAppointment,
-                        id: app.id,
+                        id: app._id,
                         app
                     } ]
                     : [ {
                         time: `${time}`, 
                         name: app.name,
                         type: app.isAppointment,
-                        id: app.id,
+                        id: app._id,
                         app
                     } ]
                 while(timeArr[i + 1] !== app.time.to) {
@@ -119,9 +124,9 @@ export const Schedual = ({date}) => {
                         : <div key={time} className='schedual__time schedual__time-free' onClick={() => {setShowAppointmentForm(true); setchosenTime( p => p = time )} }>{time}</div> 
                 }
             })}    */}
-
+            
             {showAppointmentForm && <AppointmentForm freeTime={freeTime} setShowProp={setShowAppointmentForm} chosenTime={chosenTime} />}
-            {OpenAppointmentData.id && <OpenAppointment app={OpenAppointmentData} setOpenAppointmentData={setOpenAppointmentData} />} 
+            {OpenAppointmentData._id && <OpenAppointment app={OpenAppointmentData} setOpenAppointmentData={setOpenAppointmentData} />} 
         </div>
     );
 }

@@ -12,12 +12,11 @@ export function patientsReducer(state = initialState, action) {
         case CREATE_PATIENT:
             return [...state, action.payload];
         case REMOVE_PATIENT:
-            return state.filter(patient => patient.id !== action.payload);
+            return state.filter(patient => patient._id !== action.payload);
         case GET_PATIENTS:
             return action.payload;
-            
         case UPDATE_PATIENT:
-            const patientIdx = state.findIndex(patient => patient.id === action.payload.id);
+            const patientIdx = state.findIndex(patient => patient._id === action.payload._id);
             state[patientIdx] = action.payload;
             return [...state];
 

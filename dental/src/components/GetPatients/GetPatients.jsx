@@ -16,12 +16,13 @@ export const GetPatients = () => {
     const [searchedValue, setSearchedValue] = useState('');
     
     useEffect(() => {
-        dispatch(getPatientsThunk(activeDoctor.id));
+        dispatch(getPatientsThunk(activeDoctor._id));
     }, [activeDoctor])
 
     function filterPatients() {
         setisOnTreat(p => p = !p);
     }
+    
 
     return (
         <div className="patient-list">
@@ -30,12 +31,12 @@ export const GetPatients = () => {
                 <input className="patient-list__search" placeholder="Поиск" onInput={(e) => {setSearchedValue(p => p = e.target.value.toLowerCase())}} />
             </div>
                 <p className="patient-list__active">{isOnTreat ? 'На лечении' : 'Все'}</p>
-            {activeDoctor.doctorName && patients.map(patient => {
+            {activeDoctor.name && patients.map(patient => {
                 if (patient.name.toLowerCase().includes(searchedValue) || searchedValue === '') {
                     if (isOnTreat) {
-                        return isOnTreat === patient.isTreated ? <Link to={`patient/${patient.id}`} className="patient-list__link" key={patient.id}>{patient.name}</Link> : '';
+                        return isOnTreat === patient.isTreated ? <Link to={`patient/${patient._id}`} className="patient-list__link" key={patient._id}>{patient.name}</Link> : '';
                     }else {
-                        return <Link to={`patient/${patient.id}`} className="patient-list__link" key={patient.id}>{patient.name}</Link>;
+                        return <Link to={`patient/${patient._id}`} className="patient-list__link" key={patient._id}>{patient.name}</Link>;
                     }
                 }
             })}

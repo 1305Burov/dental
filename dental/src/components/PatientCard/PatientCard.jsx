@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { patientsSelector } from "../../store/patients/selectors";
-import { removePatientThunk, updatePatientThunk } from "../../store/patients/thunk";
+import { getPatientThunk, removePatientThunk, updatePatientThunk } from "../../store/patients/thunk";
 import { ToothPick } from "../ToothPick/ToothPick";
 import { VisitHistory } from "../VisitHistory/VisitHistory";
 
@@ -23,12 +23,13 @@ export const PatientCard = () => {
     const [chosenTooth, setChosenTooth] = useState('');
 
 
-    const patientIdx = patients.findIndex(patient => patient.id === Number(patientId))
-
+    const patientIdx = patients.findIndex(patient => patient._id === patientId);
+    
     useEffect(() => {
+        dispatch(getPatientThunk(patientId));
         patients.length === 0 && navigate(-1);
     }, []);
-
+    
 
     useEffect(() => {
         if (patients.length > 0) {
@@ -43,14 +44,14 @@ export const PatientCard = () => {
 
 
     function deleteAppointment() {
-        dispatch(removePatientThunk(patientId));
-        navigate(-1);
+        dispatch(removePatientThunk(patientId, navigate));
     }
 
     function updatePatient(e) {
         e.preventDefault();
 
         const updatedData = {
+            id: patientId,
             name: e.target.name.value,
             birthdate: e.target.birthdate.value,
             address: e.target.address.value,
@@ -58,9 +59,8 @@ export const PatientCard = () => {
             notes: e.target.note.value,
             allergy: e.target.allergy.value
         }
-
-        dispatch(updatePatientThunk(patientId, updatedData));
-        navigate(-1);
+        
+        dispatch(updatePatientThunk(patientId, updatedData, navigate));
     }
 
     return ( 
@@ -74,10 +74,10 @@ export const PatientCard = () => {
                             {patients[patientIdx].isTreated && <button className="button_status" onClick={() => {dispatch(updatePatientThunk(patientId, {isTreated: false, visitCount: 1}))}}>Закончить лечение</button>}
                         </div>
                         <div className="patient-card__info">
-                            <div className="patient-card__id">{`#${ patients[patientIdx].id}`}</div>
+                            <div className="patient-card__id">{`#${ patients[patientIdx]._id}`}</div>
                             <div className="patient-card__visit visit">
-                                <button className="button button_small" onClick={() => {dispatch(updatePatientThunk(patientId, {visitCount: patients[patientIdx].visitCount + 1}))}}>+</button>   
-                                <button className="button button_small" onClick={() => {dispatch(updatePatientThunk(patientId, {visitCount: patients[patientIdx].visitCount > 1 ? patients[patientIdx].visitCount - 1 : 1}))}}>-</button>   
+                                <button className="button button_small" onClick={() => {dispatch(updatePatientThunk(patientId, {_id: patientId, visitCount: patients[patientIdx].visitCount + 1}))}}>+</button>   
+                                <button className="button button_small" onClick={() => {dispatch(updatePatientThunk(patientId, {_id: patientId, visitCount: patients[patientIdx].visitCount > 1 ? patients[patientIdx].visitCount - 1 : 1}))}}>-</button>   
                                 <div className="visit__count">{patients[patientIdx].visitCount}</div>
                             </div>
                         </div>

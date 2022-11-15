@@ -3,6 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { activeDoctorSelector } from "../../store/activeDoctor/selectors";
 import { newAppointmentThunk } from "../../store/appointments/thunk";
+import { diagnosesSelector } from "../../store/diagnoses/selectors";
+import { getDiagnosesThunk } from "../../store/diagnoses/thunk";
+import { healingsSelector } from "../../store/healings/selectors";
+import { getHealingsThunk } from "../../store/healings/thunk";
 import { patientsSelector } from "../../store/patients/selectors";
 import { updatePatientThunk } from "../../store/patients/thunk";
 import { DropdownList } from "../DropdownList/DropdownList";
@@ -15,7 +19,9 @@ export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
 
     const patients = useSelector(patientsSelector);
     const activeDoctor = useSelector(activeDoctorSelector);
-    
+    const diagnosis = useSelector(diagnosesSelector);
+    const healings = useSelector(healingsSelector);
+
     const [isAppointment, setIsAppointment] = useState(true);
     const [visitNum, setVisitNum] = useState('');
     const [activeDay, setActiveDay] = useState(null);
@@ -24,34 +30,12 @@ export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
     useEffect(() => {
         const day = new Date(Number(dayInSeconds));
         setActiveDay(p => p = `${day.getDate()} ${day.getMonth()} ${day.getFullYear()}`);
-    }, [dayInSeconds])
+    }, [dayInSeconds]);
 
-
-    const diagnosis = [
-        {
-            id: 1,
-            name: 'some diagnos 1',
-            visitNumber: 1,
-        },
-        {
-            id: 2,
-            name: 'some diagnos 2',
-            visitNumber: 2,
-        }
-    ]
-
-    const healings = [
-        {
-            id: 1,
-            name: 'some healings 1',
-            visitNumber: 1,
-        },
-        {
-            id: 2,
-            name: 'some healings 2',
-            visitNumber: 2,
-        }
-    ]
+    useEffect(() => {
+        dispatch(getDiagnosesThunk());
+        dispatch(getHealingsThunk());
+    }, []);
 
     const visitDiagnosis = diagnosis.filter(diagnos => diagnos.visitNumber === visitNum);
     const visitHealings = healings.filter(healing => healing.visitNumber === visitNum);
@@ -64,10 +48,11 @@ export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
                     if (!e.target.from.value || !e.target.to.value) {
                         throw 'Назначьте время'
                     }
+                    
                     const newAppointment = {
-                        "doctorId": Number(e.target.activeDoctor.value),
+                        "doctorId": e.target.activeDoctor.value,
                         "teethId": Number(e.target.teethId.value), 
-                        "patientId": JSON.parse(e.target.patientName.value).id,
+                        "patientId": JSON.parse(e.target.patientName.value)._id,
                         "name": JSON.parse(e.target.patientName.value).name,
                         "diagnos": JSON.parse(e.target.diagnosName.value).name,
                         "healing": JSON.parse(e.target.healingName.value).name,
@@ -79,13 +64,13 @@ export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
                         },
                         isAppointment,
                     }
-                   
-                    const patientId = JSON.parse(e.target.patientName.value).id;
-                    const patientIdx = patients.findIndex(patient => patient.id === patientId);
+                  
+                    const patientId = JSON.parse(e.target.patientName.value)._id;
+                    const patientIdx = patients.findIndex(patient => patient._id === patientId);
+
                     patients[patientIdx].isTreated = true;
                     patients[patientIdx].visitCount++;
                     
-                  
                     dispatch(newAppointmentThunk(newAppointment));
                     dispatch(updatePatientThunk(patientId, patients[patientIdx])); //?
                     setShowProp(false);
@@ -103,7 +88,7 @@ export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
                         throw 'Назначьте время'
                     }
                     const newNote = {
-                        "doctorId": Number(e.target.activeDoctor.value),
+                        "doctorId": e.target.activeDoctor.value,
                         "name": e.target.name.value,
                         "note": e.target.note.value,
                         "date": e.target.date.value,
@@ -136,7 +121,7 @@ export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
 
                         <form className="appointment__form form" onSubmit={addAppointment} >
                             <input className="form__date" type="text" defaultValue={activeDay} name='date' disabled />
-                            <input type="hidden" defaultValue={activeDoctor.id} name='activeDoctor' disabled />
+                            <input type="hidden" defaultValue={activeDoctor._id} name='activeDoctor' disabled />
                             <div className="flex">
                                 <DropdownList usedData={patients} defaultText={'Пациент'} inputName={'patientName'} setVisit={setVisitNum} />
                                 <input type="number" className="form__visit" value={visitNum} disabled />
@@ -156,7 +141,7 @@ export const AppointmentForm = ({freeTime, setShowProp, chosenTime}) => {
                     
                         <form className="appointment__form" onSubmit={addAppointment} >
                             <input className="form__date" type="text" defaultValue={activeDay} name='date' disabled />
-                            <input type="hidden" defaultValue={activeDoctor.id} name='activeDoctor' disabled />
+                            <input type="hidden" defaultValue={activeDoctor._id} name='activeDoctor' disabled />
                             <input type="text" placeholder="Название" className="dropdown__box dropdown__box-note" name="name" defaultValue={''} required />
                             <textarea type="text" placeholder="Заметки" className="form__notes form__notes-note" name="note"  />
                             <TimePicker freeTime={freeTime} chosenTime={chosenTime} className='dropdown__box-note' />
